@@ -2,22 +2,23 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-start justify-start md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6">
-      <div className="pt-6 pb-8 space-x-2 md:space-y-5">
-        <h1 className="text-6xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 md:border-r-2 md:px-6 md:text-8xl md:leading-14">
-          404
-        </h1>
+    <main className="grid min-h-full px-6 py-24 bg-white place-items-center sm:py-32 lg:px-8">
+      <div className="text-center">
+        <p className="text-base font-semibold text-indigo-600">404</p>
+        <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Page not found</h1>
+        <p className="mt-6 text-base leading-7 text-gray-600">Sorry, we couldn’t find the page you’re looking for.</p>
+        <div className="flex items-center justify-center mt-10 gap-x-6">
+          <Link
+            href="/"
+            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Go back home
+          </Link>
+          {/* <a href="#" className="text-sm font-semibold text-gray-900">
+            Contact support <span aria-hidden="true">&rarr;</span>
+          </a> */}
+        </div>
       </div>
-      <div className="max-w-md">
-        <p className="mb-4 text-xl font-bold leading-normal md:text-2xl">Sorry we couldn't find this page.</p>
-        <p className="mb-8">But dont worry, you can find plenty of other things on our homepage.</p>
-        <Link
-          href="/"
-          className="inline px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg shadow focus:shadow-outline-blue hover:bg-blue-700 focus:outline-none dark:hover:bg-blue-500"
-        >
-          Back to homepage
-        </Link>
-      </div>
-    </div>
+    </main>
   )
 }
