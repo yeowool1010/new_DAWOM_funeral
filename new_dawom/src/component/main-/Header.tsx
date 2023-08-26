@@ -2,7 +2,7 @@ import Link from 'next/link'
 const TEXTCOLOR = 'text-stone-300'
 export function Header() {
   return (
-    <nav className="sticky top-0 flex flex-wrap items-center justify-between p-6 bg-stone-600">
+    <nav className="sticky top-0 z-50 flex flex-wrap items-center justify-between p-6 bg-stone-600">
       <Link href="/">
         <div className="flex items-center flex-shrink-0 mr-6 text-white">
           {/* <svg

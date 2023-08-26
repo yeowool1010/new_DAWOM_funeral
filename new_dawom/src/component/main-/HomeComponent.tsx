@@ -1,7 +1,14 @@
+import { MainContainer } from '../../containers'
+import Image from 'next/image'
+
 export function HomeComponent() {
   return (
-    <main className="flex flex-col items-center justify-between min-h-screen p-24">
+    <MainContainer>
+      <div className="relative w-full overflow-hidden">
+        <Image src="/img/main/visual01.jpg" alt="Description" width={500} height={300} />
+      </div>
+
       <h2 className={`mb-3 text-2xl font-semibold`}>메인페이지</h2>
-    </main>
+    </MainContainer>
   )
 }
