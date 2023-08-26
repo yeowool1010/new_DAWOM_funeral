@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="kr">
       <body className={inter.className}>
         <Header />
-        <CallNav />
+        {/* <CallNav /> */}
         {children}
         <Footer />
       </body>
