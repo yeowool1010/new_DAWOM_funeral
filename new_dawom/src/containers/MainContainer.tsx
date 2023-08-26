@@ -5,5 +5,5 @@ interface Props {
 }
 
 export function MainContainer({ children }: Props) {
-  return <main className="flex flex-col items-center justify-between min-h-screen p-24">{children}</main>
+  return <main className="flex flex-col items-center justify-between min-h-screen">{children}</main>
 }

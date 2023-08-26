@@ -4,7 +4,7 @@ import Image from 'next/image'
 export function HomeComponent() {
   return (
     <MainContainer>
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full h-full overflow-hidden bg-center bg-no-repeat bg-cover">
         <Image src="/img/main/visual01.jpg" alt="Description" width={500} height={300} />
       </div>
 
