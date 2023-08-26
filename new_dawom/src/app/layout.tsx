@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { Header, CallNav } from '../component/main-'
+import { Header, CallNav, Footer } from '../component/main-'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <CallNav />
         {children}
+        <Footer />
       </body>
     </html>
   )
