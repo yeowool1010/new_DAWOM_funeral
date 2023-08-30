@@ -1,7 +1,8 @@
 import '../styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { Header, CallNav, Footer } from '../component/main-'
+import { Header, CallNav2, Footer } from '../component/main-'
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,8 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="kr">
       <body className={inter.className}>
-        <Header />
-        {/* <CallNav /> */}
+        <CallNav2 />
         {children}
         <Footer />
       </body>

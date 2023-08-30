@@ -1,0 +1,148 @@
+import Link from 'next/link'
+import Image from 'next/image'
+
+export function CallNav2() {
+  return (
+    <div className="fixed z-50 h-16 max-w-lg mt-4 -translate-x-1/2 bg-white border border-gray-200 rounded-full Tab:h-44 Tab:w-16 bottom-3 Tab:right-0 top-28 dark:bg-gray-700 dark:border-gray-600">
+      <div className="grid h-full max-w-lg grid-cols-3 mx-auto Tab:grid-cols-1">
+        <button
+          data-tooltip-target="tooltip-home"
+          type="button"
+          className="inline-flex flex-col items-center justify-center px-5 rounded-l-full dark:hover:bg-gray-800 group"
+        >
+          <svg
+            className="mb-1 text-gray-500 w-7 h-7 dark:text-gray-400 group-hover:text-mainBrown3 dark:group-hover:text-blue-500"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
+          </svg>
+          <span className="sr-only">Home</span>
+        </button>
+        <div
+          id="tooltip-home"
+          role="tooltip"
+          className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+        >
+          Home
+          <div className="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        {/* <button
+          data-tooltip-target="tooltip-wallet"
+          type="button"
+          className="inline-flex flex-col items-center justify-center px-5 dark:hover:bg-gray-800 group"
+        >
+          <svg
+            className="mb-1 text-gray-500 w-7 h-7 dark:text-gray-400 group-hover:text-mainBrown3 dark:group-hover:text-blue-500"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z" />
+            <path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z" />
+          </svg>
+          <span className="sr-only">Wallet</span>
+        </button>
+        <div
+          id="tooltip-wallet"
+          role="tooltip"
+          className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+        >
+          Wallet
+          <div className="tooltip-arrow" data-popper-arrow></div>
+        </div> */}
+        {/* <div className="flex items-center justify-center">
+          <button
+            data-tooltip-target="tooltip-new"
+            type="button"
+            className="inline-flex items-center justify-center w-10 h-10 font-medium rounded-full bg-mainBrown3 hover:bg-blue-700 group focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
+          >
+            <svg
+              className="w-4 h-4 text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 18 18"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 1v16M1 9h16"
+              />
+            </svg>
+            <span className="sr-only">New item</span>
+          </button>
+        </div> */}
+        <div
+          id="tooltip-new"
+          role="tooltip"
+          className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+        >
+          Create new item
+          <div className="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <button
+          data-tooltip-target="tooltip-settings"
+          type="button"
+          className="inline-flex flex-col items-center justify-center px-5 dark:hover:bg-gray-800 group"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-8 h-8 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-mainBrown3 dark:group-hover:text-blue-500"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <span className="sr-only">Settings</span>
+        </button>
+        <div
+          id="tooltip-settings"
+          role="tooltip"
+          className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+        >
+          Settings
+          <div className="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <button
+          data-tooltip-target="tooltip-profile"
+          type="button"
+          className="inline-flex flex-col items-center justify-center px-5 rounded-r-full dark:hover:bg-gray-800 group"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-8 h-8 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-mainBrown3 dark:group-hover:text-blue-500"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <span className="sr-only">Profile</span>
+        </button>
+        <div
+          id="tooltip-profile"
+          role="tooltip"
+          className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+        >
+          Profile
+          <div className="tooltip-arrow" data-popper-arrow></div>
+        </div>
+      </div>
+    </div>
+  )
+}
