@@ -26,14 +26,13 @@ export function Header() {
     }
   }, [])
 
-  console.log(isScrollDown)
 
   return (
     <>
       <nav
         className={`${
           isScrollDown ? 'opacity-100' : 'opacity-70'
-        } transition-opacity duration-300 sticky top-0 z-50 flex flex-wrap items-center justify-between p-6 bg-stone-600`}
+        } transition-opacity duration-300 sticky top-0 z-50 flex flex-wrap items-center justify-between p-6 bg-stone-600 PC:px-64 pt-10`}
       >
         <Link href="/">
           <div className="flex items-center flex-shrink-0 mr-6 text-white">
@@ -46,7 +45,7 @@ export function Header() {
             >
               <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
             </svg> */}
-            <span className="text-xl font-semibold tracking-tight">로고</span>
+            <span className="text-4xl font-semibold tracking-tight">로고</span>
           </div>
         </Link>
         <div className="block Tab:hidden">
@@ -57,8 +56,8 @@ export function Header() {
             </svg>
           </button>
         </div>
-        <div className="flex-grow block w-full Tab:flex Tab:items-center Tab:w-auto ">
-          <div className="text-sm Tab:flex-grow">
+        <div className="flex-grow block w-full Tab:flex Tab:items-center Tab:w-auto">
+          <div className="text-lg Tab:flex-grow">
             <Link href="/companyInfo">
               <p className="block mt-4 mr-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white">회사소개</p>
             </Link>
