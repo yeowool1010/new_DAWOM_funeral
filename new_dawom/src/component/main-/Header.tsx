@@ -3,8 +3,14 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRecoilValue } from 'recoil'
+import { toggleState } from '../../atom/RecoilState'
+import { useRecoilState } from 'recoil'
 
 export function Header() {
+  const [isMenuOpenToggled, setIsMenuOpenToggled] = useRecoilState(toggleState)
+  // const isToggled = useRecoilValue(toggleState)
+
   const [isScrollDown, setIsScrollDown] = useState(true)
 
   useEffect(() => {
@@ -26,6 +32,7 @@ export function Header() {
     }
   }, [])
 
+  let menuOpen = true
 
   return (
     <>
@@ -48,7 +55,7 @@ export function Header() {
             <span className="text-4xl font-semibold tracking-tight">로고</span>
           </div>
         </Link>
-        <div className="block Tab:hidden">
+        <div onClick={() => setIsMenuOpenToggled(!isMenuOpenToggled)} className="block Tab:hidden">
           <button className="flex items-center px-3 py-2 border rounded text-mainBrown1 border-mainBrown2 hover:text-white hover:border-white">
             <svg className="w-3 h-3 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <title>Menu</title>
@@ -56,8 +63,10 @@ export function Header() {
             </svg>
           </button>
         </div>
-        <div className="flex-grow block w-full Tab:flex Tab:items-center Tab:w-auto">
-          <div className="text-lg Tab:flex-grow">
+        <div
+          className={`flex-grow ${isMenuOpenToggled ? 'block' : 'hidden'} w-full Tab:flex Tab:items-center Tab:w-auto`}
+        >
+          <div onClick={() => setIsMenuOpenToggled(!isMenuOpenToggled)} className="text-lg Tab:flex-grow">
             <Link href="/companyInfo">
               <p className="block mt-4 mr-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white">회사소개</p>
             </Link>
