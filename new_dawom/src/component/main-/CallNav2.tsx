@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export function CallNav2() {
   return (
-    <div className="fixed z-50 h-16  bottom-0 left-1/2 -translate-y-4/12 -translate-x-1/2 bg-white border border-gray-200 rounded-full Tab:h-44 Tab:w-16 Tab:right-1 Tab:top-28  dark:bg-gray-700 dark:border-gray-600">
+    <div className="fixed right-0 z-50 hidden h-16 -translate-x-1/2 bg-white border border-gray-200 rounded-full Tab:block bottom-1 -translate-y-4/12 Tab:h-44 Tab:w-16 Tab:top-28 dark:bg-gray-700 dark:border-gray-600">
       <div className="grid h-full max-w-lg grid-cols-3 mx-auto Tab:grid-cols-1">
         <button
           data-tooltip-target="tooltip-home"
