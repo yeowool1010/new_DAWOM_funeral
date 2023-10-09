@@ -34,6 +34,13 @@ export function Header() {
 
   let menuOpen = true
 
+  const [isMenuHidden, setIsMenuHidden] = useState(false)
+  console.log(isMenuHidden)
+
+  const handleMenuHidden = () => {
+    setIsMenuHidden(!isMenuHidden)
+  }
+
   return (
     <>
       <nav
@@ -71,7 +78,14 @@ export function Header() {
               <p className="block mt-4 mr-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white">회사소개</p>
             </Link>
             <Link href="/funeralContent">
-              <p className="block mt-4 mr-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white">장례상품</p>
+              <p
+                // onFocus={handleMenuHidden}
+                onMouseEnter={() => setIsMenuHidden(true)}
+                // onMouseLeave={() => setIsMenuHidden(true)}
+                className="block mt-4 mr-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white"
+              >
+                장례상품
+              </p>
             </Link>
             <Link href="/review">
               <p className="block mt-4 mr-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white">장례후기</p>
@@ -84,6 +98,68 @@ export function Header() {
             <p className="inline-block px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded hover:border-transparent hover:text-mainBrown2 hover:bg-white Tab:mt-0">
               문의하기
             </p>
+          </div>
+        </div>
+        {/* 장례상품 드롭다운 */}
+        <div
+          id="mega-menu-full-dropdown"
+          className={`${
+            isMenuHidden ? 'hidden' : ''
+          } mt-1 border-gray-200 shadow-sm bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600`}
+        >
+          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:px-6">
+            <ul>
+              <li>
+                <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <div className="font-semibold">Online Stores</div>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    Connect with third-party tools that you're already using.
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <div className="font-semibold">Segmentation</div>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    Connect with third-party tools that you're already using.
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <div className="font-semibold">Marketing CRM</div>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    Connect with third-party tools that you're already using.
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <div className="font-semibold">Online Stores</div>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    Connect with third-party tools that you're already using.
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <div className="font-semibold">Segmentation</div>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    Connect with third-party tools that you're already using.
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <div className="font-semibold">Marketing CRM</div>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    Connect with third-party tools that you're already using.
+                  </span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
