@@ -6,7 +6,7 @@ interface Props {
 
 export function MainInnerContainer({ children }: Props) {
   return (
-    <div className="flex justify-center w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div className="flex items-center justify-center w-full p-4 text-center bg-white border border-gray-200 shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
       {children}
     </div>
   )
