@@ -35,7 +35,7 @@ export function Header() {
   let menuOpen = true
 
   const [isMenuHidden, setIsMenuHidden] = useState(false)
-  console.log(isMenuHidden)
+  const [isInfoMenuHidden, setIsInfoMenuHidden] = useState(false)
 
   const handleMenuHidden = () => {
     setIsMenuHidden(!isMenuHidden)
@@ -75,12 +75,25 @@ export function Header() {
         >
           <div onClick={() => setIsMenuOpenToggled(!isMenuOpenToggled)} className="text-lg Tab:flex-grow">
             <Link href="/companyInfo">
-              <p className="block mt-4 mr-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white">회사소개</p>
+              <p
+                onMouseEnter={() => {
+                  setIsMenuHidden(false)
+                  setIsInfoMenuHidden(true)
+                }}
+                onClick={() => setIsInfoMenuHidden(false)}
+                className="block mt-4 mr-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white"
+              >
+                회사소개
+              </p>
             </Link>
             <Link href="/funeralContent">
               <p
                 // onFocus={handleMenuHidden}
-                onMouseEnter={() => setIsMenuHidden(true)}
+                onMouseEnter={() => {
+                  setIsMenuHidden(true)
+                  setIsInfoMenuHidden(false)
+                }}
+                onClick={() => setIsMenuHidden(false)}
                 // onMouseLeave={() => setIsMenuHidden(true)}
                 className="block mt-4 mr-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white"
               >
@@ -88,10 +101,26 @@ export function Header() {
               </p>
             </Link>
             <Link href="/review">
-              <p className="block mt-4 mr-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white">장례후기</p>
+              <p
+                onMouseEnter={() => {
+                  setIsMenuHidden(false)
+                  setIsInfoMenuHidden(false)
+                }}
+                className="block mt-4 mr-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white"
+              >
+                장례후기
+              </p>
             </Link>
             <Link href="/funeralInfo">
-              <p className="block mt-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white">장례정보</p>
+              <p
+                onMouseEnter={() => {
+                  setIsMenuHidden(false)
+                  setIsInfoMenuHidden(false)
+                }}
+                className="block mt-4 text-mainBrown1 Tab:inline-block Tab:mt-0 hover:text-white"
+              >
+                장례정보
+              </p>
             </Link>
           </div>
           <div>
@@ -100,66 +129,122 @@ export function Header() {
             </p>
           </div>
         </div>
+
+        {/* 회사소개 드롭다운 */}
+        <div className="absolute border-gray-200 shadow-lg App:hidden Tab:block top-full bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600">
+          <div
+            onMouseLeave={() => setIsInfoMenuHidden(false)}
+            id="mega-menu-full-dropdown"
+            className={`${isInfoMenuHidden ? '' : 'hidden'} `}
+            // } absolute shadow-lg top-full mt-1 border-gray-200 bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600`}
+          >
+            <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white md:px-6">
+              <ul>
+                <li>
+                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div className="font-semibold">다움상조 소개</div>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">다움상조 소개</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div className="font-semibold">후불제 장례</div>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">다움상조 운영방식 소개</span>
+                  </a>
+                </li>
+                {/* <li>
+                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div className="font-semibold">프리미엄 장례</div>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">다움상조 고품격 vip장례 상품</span>
+                  </a>
+                </li> */}
+              </ul>
+              {/* <ul>
+                <li>
+                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div className="font-semibold">Online Stores</div>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      Connect with third-party tools that you're already using.
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div className="font-semibold">Segmentation</div>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      Connect with third-party tools that you're already using.
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div className="font-semibold">Marketing CRM</div>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      Connect with third-party tools that you're already using.
+                    </span>
+                  </a>
+                </li>
+              </ul> */}
+            </div>
+          </div>
+        </div>
+
         {/* 장례상품 드롭다운 */}
-        <div
-          id="mega-menu-full-dropdown"
-          className={`${
-            isMenuHidden ? 'hidden' : ''
-          } mt-1 border-gray-200 shadow-sm bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600`}
-        >
-          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:px-6">
-            <ul>
-              <li>
-                <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <div className="font-semibold">Online Stores</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <div className="font-semibold">Segmentation</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <div className="font-semibold">Marketing CRM</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
-                  </span>
-                </a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <div className="font-semibold">Online Stores</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <div className="font-semibold">Segmentation</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <div className="font-semibold">Marketing CRM</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
-                  </span>
-                </a>
-              </li>
-            </ul>
+        <div className="absolute border-gray-200 shadow-lg App:hidden Tab:block top-full bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600">
+          <div
+            onMouseLeave={() => setIsMenuHidden(false)}
+            id="mega-menu-full-dropdown"
+            className={`${isMenuHidden ? '' : 'hidden'} `}
+            // } absolute shadow-lg top-full mt-1 border-gray-200 bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600`}
+          >
+            <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white md:px-6">
+              <ul>
+                <li>
+                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div className="font-semibold">150 무빈소 장례</div>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">조문객 방문이 없는 상품</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div className="font-semibold">230 고급형 장례</div>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">장례비용 부담없이 고급형 장례상품</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div className="font-semibold">330 프리미엄 장례</div>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">다움상조 고품격 vip장례 상품</span>
+                  </a>
+                </li>
+              </ul>
+              {/* <ul>
+                <li>
+                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div className="font-semibold">Online Stores</div>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      Connect with third-party tools that you're already using.
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div className="font-semibold">Segmentation</div>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      Connect with third-party tools that you're already using.
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div className="font-semibold">Marketing CRM</div>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      Connect with third-party tools that you're already using.
+                    </span>
+                  </a>
+                </li>
+              </ul> */}
+            </div>
           </div>
         </div>
       </nav>
