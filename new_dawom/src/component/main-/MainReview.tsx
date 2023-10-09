@@ -2,55 +2,8 @@ import Image from 'next/image'
 
 export function MainReview() {
   return (
-    // <div className="m-2 h-52 Tab:h-56 mb-3 Tab:mb-0 w-full min-w-[200px] Tab:w-4/12 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <div className="w-11/12 p-3 m-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      {/* <ul
-        className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800"
-        id="defaultTab"
-        data-tabs-toggle="#defaultTabContent"
-        role="tablist"
-      >
-        <li className="mr-2">
-          <button
-            id="about-tab"
-            data-tabs-target="#about"
-            type="button"
-            role="tab"
-            aria-controls="about"
-            aria-selected="true"
-            className="inline-block p-4 text-blue-600 rounded-tl-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-blue-500"
-          >
-            About
-          </button>
-        </li>
-        <li className="mr-2">
-          <button
-            id="services-tab"
-            data-tabs-target="#services"
-            type="button"
-            role="tab"
-            aria-controls="services"
-            aria-selected="false"
-            className="inline-block p-4 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-          >
-            Services
-          </button>
-        </li>
-        <li className="mr-2">
-          <button
-            id="statistics-tab"
-            data-tabs-target="#statistics"
-            type="button"
-            role="tab"
-            aria-controls="statistics"
-            aria-selected="false"
-            className="inline-block p-4 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-          >
-            Facts
-          </button>
-        </li>
-      </ul> */}
-      <div id="defaultTabContent">
+    <div className="flex flex-col w-11/12 p-3 m-3 bg-white border border-gray-200 rounded-lg shadow Tab:flex-row dark:bg-gray-800 dark:border-gray-700">
+      <div className="Tab:w-1/3" id="defaultTabContent">
         <div
           className="p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800"
           id="about"
@@ -58,8 +11,6 @@ export function MainReview() {
           aria-labelledby="about-tab"
         >
           <h2 className="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">장례후기</h2>
-          {/* <p className="mb-3 text-gray-500 dark:text-gray-400 "> */}
-          {/* <p className="w-[250px] overflow-hidden overflow-ellipsis whitespace-nowrap mb-3 text-gray-500 dark:text-gray-400 "> */}
 
           {/* 긴 글 줄바꿈 되지 않도록 이 줄만 프리티어 적용 ignore 함 */}
           {/* clamp-3은 tailwind plugins으로 세 줄 이상일 경우 ... 처리하는것임*/}
@@ -89,67 +40,7 @@ export function MainReview() {
             </svg>
           </a>
         </div>
-        <div
-          className="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800"
-          id="services"
-          role="tabpanel"
-          aria-labelledby="services-tab"
-        >
-          <h2 className="mb-5 text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            We invest in the world’s potential
-          </h2>
-          {/* <!-- List --> */}
-          <ul role="list" className="space-y-4 text-gray-500 dark:text-gray-400">
-            <li className="flex items-center space-x-2">
-              <svg
-                className="flex-shrink-0 w-3.5 h-3.5 text-blue-600 dark:text-blue-500"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-              </svg>
-              <span className="leading-tight">Dynamic reports and dashboards</span>
-            </li>
-            <li className="flex items-center space-x-2">
-              <svg
-                className="flex-shrink-0 w-3.5 h-3.5 text-blue-600 dark:text-blue-500"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-              </svg>
-              <span className="leading-tight">Templates for everyone</span>
-            </li>
-            <li className="flex items-center space-x-2">
-              <svg
-                className="flex-shrink-0 w-3.5 h-3.5 text-blue-600 dark:text-blue-500"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-              </svg>
-              <span className="leading-tight">Development workflow</span>
-            </li>
-            <li className="flex items-center space-x-2">
-              <svg
-                className="flex-shrink-0 w-3.5 h-3.5 text-blue-600 dark:text-blue-500"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-              </svg>
-              <span className="leading-tight">Limitless business automation</span>
-            </li>
-          </ul>
-        </div>
+
         <div
           className="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800"
           id="statistics"
@@ -172,17 +63,19 @@ export function MainReview() {
           </dl>
         </div>
       </div>
-      <ul>
-        <li>
-          <Image src="/img/main/review_img1.jpg" alt="Description" layout="responsive" width={200} height={200} />
-        </li>
-        <li>
-          <Image src="/img/main/review_img2.jpg" alt="Description" layout="responsive" width={200} height={200} />
-        </li>
-        <li>
-          <Image src="/img/main/review_img3.jpg" alt="Description" layout="responsive" width={200} height={200} />
-        </li>
-      </ul>
+      <div className="Tab:w-2/3">
+        <ul className="flex flex-col Tab:flex-row">
+          <li>
+            <Image src="/img/main/review_img1.jpg" alt="Description" layout="responsive" width={200} height={200} />
+          </li>
+          <li>
+            <Image src="/img/main/review_img2.jpg" alt="Description" layout="responsive" width={200} height={200} />
+          </li>
+          <li>
+            <Image src="/img/main/review_img3.jpg" alt="Description" layout="responsive" width={200} height={200} />
+          </li>
+        </ul>
+      </div>
     </div>
   )
 }
