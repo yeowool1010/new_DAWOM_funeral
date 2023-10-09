@@ -1,4 +1,5 @@
 import { MainContainer, MainInnerContainer } from '../../containers'
+import { MainReview } from '../main-'
 import Image from 'next/image'
 
 export function HomeComponent() {
@@ -202,6 +203,7 @@ export function HomeComponent() {
         </div>
         {/* </div> */}
       </div>
+      <MainReview></MainReview>
     </>
   )
 }
