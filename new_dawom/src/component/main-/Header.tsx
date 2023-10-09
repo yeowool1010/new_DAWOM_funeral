@@ -72,9 +72,11 @@ export function Header() {
           </button>
         </div>
         <div
-          className={`flex-grow ${isMenuOpenToggled ? 'block' : 'hidden'} w-full Tab:flex Tab:items-center Tab:w-auto`}
+          className={`flex-grow ${
+            isMenuOpenToggled ? 'block' : 'hidden'
+          } w-full bg-stone-600 top-24 right-0 Tab:top-0 absolute Tab:relative Tab:flex Tab:items-center Tab:w-auto`}
         >
-          <div onClick={() => setIsMenuOpenToggled(!isMenuOpenToggled)} className="text-lg Tab:flex-grow">
+          <div onClick={() => setIsMenuOpenToggled(!isMenuOpenToggled)} className="px-6 pb-6 text-lg Tab:flex-grow">
             <Link href="/companyInfo">
               <p
                 onMouseEnter={() => {
@@ -123,9 +125,14 @@ export function Header() {
                 장례정보
               </p>
             </Link>
+            <div>
+              <p className="inline-block px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded Tab:hidden hover:border-transparent hover:text-mainBrown2 hover:bg-white Tab:mt-0">
+                문의하기
+              </p>
+            </div>
           </div>
           <div>
-            <p className="inline-block px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded hover:border-transparent hover:text-mainBrown2 hover:bg-white Tab:mt-0">
+            <p className="hidden px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded Tab:inline-block hover:border-transparent hover:text-mainBrown2 hover:bg-white Tab:mt-0">
               문의하기
             </p>
           </div>
@@ -153,39 +160,7 @@ export function Header() {
                     <span className="text-sm text-gray-500 dark:text-gray-400">다움상조 운영방식 소개</span>
                   </a>
                 </li>
-                {/* <li>
-                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div className="font-semibold">프리미엄 장례</div>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">다움상조 고품격 vip장례 상품</span>
-                  </a>
-                </li> */}
               </ul>
-              {/* <ul>
-                <li>
-                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div className="font-semibold">Online Stores</div>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
-                      Connect with third-party tools that you're already using.
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div className="font-semibold">Segmentation</div>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
-                      Connect with third-party tools that you're already using.
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div className="font-semibold">Marketing CRM</div>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
-                      Connect with third-party tools that you're already using.
-                    </span>
-                  </a>
-                </li>
-              </ul> */}
             </div>
           </div>
         </div>
@@ -219,32 +194,6 @@ export function Header() {
                   </a>
                 </li>
               </ul>
-              {/* <ul>
-                <li>
-                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div className="font-semibold">Online Stores</div>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
-                      Connect with third-party tools that you're already using.
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div className="font-semibold">Segmentation</div>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
-                      Connect with third-party tools that you're already using.
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div className="font-semibold">Marketing CRM</div>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
-                      Connect with third-party tools that you're already using.
-                    </span>
-                  </a>
-                </li>
-              </ul> */}
             </div>
           </div>
         </div>
