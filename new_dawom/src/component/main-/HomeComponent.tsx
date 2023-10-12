@@ -1,17 +1,11 @@
 import { MainContainer, MainInnerContainer } from '../../containers'
 import { MainReview } from '../main-'
-import Image from 'next/image'
 
 export function HomeComponent() {
   return (
     <>
-      <div className="flex flex-col ">
-        {/* <div className="top-0 w-full h-full overflow-hidden bg-center bg-no-repeat bg-cover ">
-          <Image src="/img/main/visual01.jpg" alt="Description" layout="responsive" width={1000} height={200} />
-        </div> */}
-        {/* 다움상조 회사소개 + 후불제상조 소개 */}
-
-        <div className="flex flex-col items-center w-full p-2 Tab:flex-row">
+      <div className="flex flex-col">
+        <div className="flex flex-col items-center w-full p-2 overflow-hidden Tab:flex-row">
           {/* <div className="Tab:flex-row"> */}
           {/* 상품 소개 태그 */}
           {/* <div className="max-w-sm min-w-[200px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"> */}
@@ -132,8 +126,8 @@ export function HomeComponent() {
           </div>
         </div>
         {/* </div> */}
+        <MainReview />
       </div>
-      <MainReview />
     </>
   )
 }

@@ -44,7 +44,7 @@ export function Header() {
   return (
     <>
       <nav
-        className={` transition-opacity duration-300 sticky top-0 z-50 flex flex-wrap items-center justify-between p-6 bg-stone-600 PC:px-64 pt-10`}
+        className={`transition-opacity duration-300 sticky top-0 z-50 flex flex-wrap items-center justify-between p-6 bg-stone-600 PC:px-64 pt-10`}
         // className={`${
         //   isScrollDown ? 'opacity-100' : 'opacity-70'
         // } transition-opacity duration-300 sticky top-0 z-50 flex flex-wrap items-center justify-between p-6 bg-stone-600 PC:px-64 pt-10`}

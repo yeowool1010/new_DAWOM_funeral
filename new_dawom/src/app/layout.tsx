@@ -5,7 +5,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Header, CallNav2, Footer, HomeCompanyInfo } from '../component/main-'
 import { RecoilRoot } from 'recoil'
-import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,10 +25,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="kr">
         <body className={inter.className}>
           <Header />
-          <div className="top-0 w-full h-full overflow-hidden bg-center bg-no-repeat bg-cover ">
-            <Image src="/img/main/visual01.jpg" alt="Description" layout="responsive" width={1000} height={200} />
-          </div>
-          <HomeCompanyInfo />
           <div className="flex flex-col items-center">
             <CallNav2 />
             {children}
