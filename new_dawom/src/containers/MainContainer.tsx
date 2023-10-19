@@ -1,9 +1,5 @@
-import { ReactNode } from 'react'
+import { ReactNodeProps } from '../types'
 
-interface Props {
-  children: ReactNode
-}
-
-export const MainContainer = ({ children }: Props) => {
+export const MainContainer = ({ children }: ReactNodeProps) => {
   return <main className="flex flex-col items-center justify-between min-h-screen ">{children}</main>
 }

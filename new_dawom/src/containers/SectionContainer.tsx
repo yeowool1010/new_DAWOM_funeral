@@ -1,9 +1,5 @@
-import { ReactNode } from 'react'
+import { ReactNodeProps } from '../types'
 
-interface Props {
-  children: ReactNode
-}
-
-export const SectionContainer = ({ children }: Props) => {
+export const SectionContainer = ({ children }: ReactNodeProps) => {
   return <section className="max-w-3xl px-0 mx-auto xl:max-w-5xl">{children}</section>
 }

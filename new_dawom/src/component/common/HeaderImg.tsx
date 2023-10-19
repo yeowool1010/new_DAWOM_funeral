@@ -1,8 +1,5 @@
 import Image from 'next/image'
-
-type MyComponentProps = {
-  children: React.ReactNode
-}
+import { ReactNodeProps } from '../../types'
 
 /**
  * `HeaderImg` 컴포넌트는 상세 페이지의 제목을 보여주는 이미지 위에 오버레이 형태로 텍스트를 표시하는 컴포넌트입니다.
@@ -27,7 +24,8 @@ type MyComponentProps = {
  * ```
  */
 
-export const HeaderImg: React.FC<MyComponentProps> = ({ children }) => {
+// export const HeaderImg: React.FC<MyComponentProps> = ({ children }) => {
+export const HeaderImg = ({ children }: ReactNodeProps) => {
   return (
     <div className="relative w-full h-full overflow-hidden">
       <Image src="/img/companyInfo/sb_visual.jpg" alt="Description" layout="responsive" width={1000} height={200} />
