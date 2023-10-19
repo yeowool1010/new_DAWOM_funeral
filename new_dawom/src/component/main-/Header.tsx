@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil'
 import { toggleState } from '../../atom/RecoilState'
 import { useRecoilState } from 'recoil'
 
-export function Header() {
+export const Header = () => {
   const [isMenuOpenToggled, setIsMenuOpenToggled] = useRecoilState(toggleState)
   // const isToggled = useRecoilValue(toggleState)
 

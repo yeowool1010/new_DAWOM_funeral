@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-export function CallNav() {
+export const CallNav = () => {
   return (
     <div className="fixed right-0 z-50 w-20 text-lg leading-5 bg-white cursor-pointer h-52 top-24 opacity-80">
       <div className="flex flex-col items-center w-full h-full p-2 font-bold">

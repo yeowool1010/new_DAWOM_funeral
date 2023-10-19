@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export function MainReview() {
+export const MainReview = () => {
   return (
     <div className="flex flex-col items-center w-11/12 p-3 m-3 overflow-hidden bg-white border border-gray-200 rounded-lg shadow Tab:items-start Tab:flex-row dark:bg-gray-800 dark:border-gray-700">
       <div className="Tab:w-1/3" id="defaultTabContent">

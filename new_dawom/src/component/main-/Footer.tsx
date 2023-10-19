@@ -2,7 +2,7 @@ import Link from 'next/link'
 import SocialIcon from './social-icons'
 import siteMetadata from '../../data/siteMetadata'
 
-export function Footer() {
+export const Footer = () => {
   return (
     <footer>
       <div className="flex flex-col items-center mt-5">

@@ -2,7 +2,7 @@ import { MainContainer, MainInnerContainer } from '../../containers'
 import { MainReview } from '../main-'
 import Image from 'next/image'
 
-export function HomeCompanyInfo() {
+export const HomeCompanyInfo = () => {
   return (
     <MainInnerContainer>
       {/* 다움상조 회사소개 + 후불제상조 소개 */}

@@ -2,7 +2,7 @@ import { MainContainer } from '../../containers'
 import { HeaderImg } from '../common'
 import Image from 'next/image'
 
-export function CompanyInfoMain() {
+export const CompanyInfoMain = () => {
   return (
     <>
       <HeaderImg>회사소개</HeaderImg>

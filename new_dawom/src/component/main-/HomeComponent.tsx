@@ -1,7 +1,7 @@
 import { MainContainer, MainInnerContainer } from '../../containers'
 import { MainReview } from '../main-'
 
-export function HomeComponent() {
+export const HomeComponent = () => {
   return (
     <>
       <div className="flex flex-col">
