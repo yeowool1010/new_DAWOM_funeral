@@ -1,18 +1,11 @@
 import { MainContainer } from '../../containers'
+import { HeaderImg } from '../common'
 import Image from 'next/image'
 
 export function CompanyInfoMain() {
   return (
     <>
-      <div className="relative w-full h-full overflow-hidden">
-        <Image src="/img/companyInfo/sb_visual.jpg" alt="Description" layout="responsive" width={1000} height={200} />
-        <div className="absolute top-0 left-0 flex items-center justify-center w-full h-full">
-          {/* <p className="text-sm text-white Tab:text-3xl" style={{ marginLeft: '2em' }}>
-            아름다운 이별 다움상조에서 함께 하겠습니다
-          </p> */}
-          <p className="text-lg font-bold text-white Tab:text-3xl">회사소개</p>
-        </div>
-      </div>
+      <HeaderImg>회사소개</HeaderImg>
       <MainContainer>
         <div className="container px-4 py-8 mx-auto space-y-8">
           <div className="container px-4 py-8 mx-auto">
