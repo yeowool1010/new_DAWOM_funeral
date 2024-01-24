@@ -12,10 +12,10 @@ export const Content150 = () => {
           height={300}
         />
         <div className="absolute flex flex-col items-center transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-          <span className="text-xl font-bold text-blue-600">1,500,000원</span>
+          <span className="text-3xl font-bold text-blue-600">1,500,000원</span>
           <div className="flex flex-col items-center Tab:flex-row">
-            <p className="text-black ">추가비용 없는</p>
-            <p className="text-black ">무빈소 서비스 상품.</p>
+            <p className="text-base text-black ">추가비용 없는</p>
+            <p className="text-base text-black ">무빈소 서비스 상품.</p>
           </div>
         </div>
       </div>
@@ -212,22 +212,22 @@ export const Content150 = () => {
         <div className="grid items-center grid-cols-4 gap-4 p-5">
           <div className="flex flex-col items-center">
             <Image
-              src="/img/170/70_list03_4_1_img.png"
-              alt="상주완장"
-              className="w-24 h-20 mb-2 rounded-md"
+              src="/img/170/70_list03_5_1_img.png"
+              alt="알코올"
+              className="w-10 h-20 mb-2 rounded-md"
               width={100}
               height={100}
             />
-            <div className="w-16 px-4 py-2 font-bold text-center text-white bg-blue-500 rounded-full h-fit hover:bg-blue-700">
-              알콜
+            <div className="w-20 px-4 py-2 font-bold text-center text-white bg-blue-500 rounded-full h-fit hover:bg-blue-700">
+              알코올
             </div>
           </div>
 
           <div className="flex flex-col items-center ">
             <Image
-              src="/img/170/70_list03_4_2_img.png"
-              alt="머리핀"
-              className="w-24 h-20 mb-2 rounded-md"
+              src="/img/170/70_list03_5_2_img.png"
+              alt="탈지면"
+              className="w-20 h-20 mb-2 rounded-md"
               width={100}
               height={100}
             />
@@ -238,9 +238,9 @@ export const Content150 = () => {
 
           <div className="flex flex-col items-center">
             <Image
-              src="/img/170/70_list03_4_3_img.png"
-              alt="운구용 장갑"
-              className="w-24 h-20 mb-2 rounded-md"
+              src="/img/170/70_list03_5_3_img.png"
+              alt="예단"
+              className="w-20 h-20 mb-2 rounded-md"
               width={100}
               height={100}
             />
@@ -251,8 +251,8 @@ export const Content150 = () => {
 
           <div className="flex flex-col items-center">
             <Image
-              src="/img/170/70_list03_4_3_img.png"
-              alt="운구용 장갑"
+              src="/img/170/70_list03_5_4_img.png"
+              alt="습신"
               className="w-24 h-20 mb-2 rounded-md"
               width={100}
               height={100}
@@ -266,8 +266,8 @@ export const Content150 = () => {
         <div className="grid items-center grid-cols-3 gap-4 p-5">
           <div className="flex flex-col items-center">
             <Image
-              src="/img/170/70_list03_4_1_img.png"
-              alt="상주완장"
+              src="/img/170/70_list03_5_5_img.png"
+              alt="염지"
               className="w-24 h-20 mb-2 rounded-md"
               width={100}
               height={100}
@@ -278,9 +278,9 @@ export const Content150 = () => {
           </div>
           <div className="flex flex-col items-center ">
             <Image
-              src="/img/170/70_list03_4_2_img.png"
-              alt="머리핀"
-              className="w-24 h-20 mb-2 rounded-md"
+              src="/img/170/70_list03_5_7_img.png"
+              alt="다라니경"
+              className="w-9 h-20 mb-2 rounded-md"
               width={100}
               height={100}
             />
@@ -290,9 +290,9 @@ export const Content150 = () => {
           </div>
           <div className="flex flex-col items-center">
             <Image
-              src="/img/170/70_list03_4_3_img.png"
-              alt="운구용 장갑"
-              className="w-24 h-20 mb-2 rounded-md"
+              src="/img/170/70_list03_5_6_img.png"
+              alt="기독경"
+              className="w-9 h-20 mb-2 rounded-md"
               width={100}
               height={100}
             />
@@ -305,9 +305,9 @@ export const Content150 = () => {
         <div className="grid items-center grid-cols-2 gap-4 p-5">
           <div className="flex flex-col items-center ">
             <Image
-              src="/img/170/70_list03_4_2_img.png"
-              alt="머리핀"
-              className="w-24 h-20 mb-2 rounded-md"
+              src="/img/170/70_list03_5_8_img.png"
+              alt="오동나무 관"
+              className="w-32 h-20 mb-2 rounded-md"
               width={100}
               height={100}
             />
@@ -317,8 +317,8 @@ export const Content150 = () => {
           </div>
           <div className="flex flex-col items-center">
             <Image
-              src="/img/170/70_list03_4_3_img.png"
-              alt="운구용 장갑"
+              src="/img/290/70_list03_5_9_img.png"
+              alt="종교별 관보"
               className="w-24 h-20 mb-2 rounded-md"
               width={100}
               height={100}
@@ -347,8 +347,8 @@ export const Content150 = () => {
       <div className="grid grid-cols-3 gap-6 p-5 mb-5 bg-innerBg rounded-md drop-shadow-lg">
         <div className="">
           <Image
-            src="/img/170/70_list03_3_img.png"
-            alt="고급 수의"
+            src="/img/290/70_list04_1_img.png"
+            alt="장례식장 안치실 예약"
             className="w-full mb-2 rounded-md"
             width={200}
             height={200}
@@ -359,8 +359,8 @@ export const Content150 = () => {
 
         <div>
           <Image
-            src="/img/170/70_list03_2_img.png"
-            alt="고급 도자기 유골함"
+            src="/img/290/70_list04_2_img.png"
+            alt="화장장 동행 서비스"
             className="w-full mb-2 rounded-md"
             width={200}
             height={200}
@@ -371,8 +371,8 @@ export const Content150 = () => {
 
         <div>
           <Image
-            src="/img/170/70_list03_1_img.png"
-            alt="상복"
+            src="/img/290/70_list04_3_img.png"
+            alt="납골당, 수목장"
             className="w-full mb-2 rounded-md"
             width={200}
             height={200}
@@ -385,8 +385,8 @@ export const Content150 = () => {
         <div className="grid grid-cols-2 col-span-3 gap-6">
           <div className="">
             <Image
-              src="/img/170/70_list03_3_img.png"
-              alt="고급 수의"
+              src="/img/290/70_list04_4_img.png"
+              alt="장례식장 빈소"
               className="w-full mb-2 rounded-md"
               width={200}
               height={200}
@@ -397,8 +397,8 @@ export const Content150 = () => {
 
           <div>
             <Image
-              src="/img/170/70_list03_2_img.png"
-              alt="고급 도자기 유골함"
+              src="/img/290/123_list04_8_img.jpg"
+              alt="운구인원 요청시 2명 무상지원"
               className="w-full mb-2 rounded-md"
               width={200}
               height={200}
@@ -409,8 +409,8 @@ export const Content150 = () => {
 
           <div className="">
             <Image
-              src="/img/170/70_list03_3_img.png"
-              alt="고급 수의"
+              src="/img/290/123_list04_6_img.jpg"
+              alt="조문 예절 안내"
               className="w-full mb-2 rounded-md"
               width={200}
               height={200}
