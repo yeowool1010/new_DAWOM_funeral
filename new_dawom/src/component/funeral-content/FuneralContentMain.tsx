@@ -23,7 +23,7 @@ export const FuneralContentMain = () => {
           <div className="flex items-center justify-between p-2 ">
             <button
               type="button"
-              className="flex flex-col items-center w-4/12 p-1 mx-2 font-bold  text-blue-500 hover:text-white bg-blue-100 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              className="flex flex-col items-center w-4/12 p-1 mx-2 font-bold  text-blue-500 hover:text-white bg-blue-100 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-100 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               onClick={() => {
                 handleContentClick('150')
               }}
@@ -33,7 +33,7 @@ export const FuneralContentMain = () => {
             </button>
             <button
               type="button"
-              className="flex flex-col items-center w-4/12 p-1 mx-2 font-bold  text-blue-500 hover:text-white bg-blue-100 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              className="flex flex-col items-center w-4/12 p-1 mx-2 font-bold  text-blue-500 hover:text-white bg-blue-100 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-100 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               onClick={() => {
                 handleContentClick('230')
               }}
@@ -43,7 +43,7 @@ export const FuneralContentMain = () => {
             </button>
             <button
               type="button"
-              className="flex flex-col items-center w-4/12 p-1 mx-2 font-bold  text-blue-500 hover:text-white bg-blue-100 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              className="flex flex-col items-center w-4/12 p-1 mx-2 font-bold  text-blue-500 hover:text-white bg-blue-100 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-100 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               onClick={() => {
                 handleContentClick('330')
               }}

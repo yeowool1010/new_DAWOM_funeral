@@ -18,6 +18,9 @@ module.exports = {
         mainBrown1: '#D6D3D1',
         mainBrown2: '#A8A29E',
         mainBrown3: '#78716C',
+        innerBg : '#EEEEEE', // 배경회색
+        titleGray : '#111111',
+        textGray : '#444444'
       },
       // 반응형의 경우 디자인 변형 기준을 위한 너비 설정
       screens: {
