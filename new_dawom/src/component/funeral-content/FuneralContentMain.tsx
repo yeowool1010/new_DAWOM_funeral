@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { MainContainer } from '../../containers'
 import { HeaderImg } from '../common'
-import { Content150 } from './contentPage'
+import { Content150, Content230, Content330  } from './contentPage'
 import Image from 'next/image'
 
 export const FuneralContentMain = () => {
@@ -54,8 +54,8 @@ export const FuneralContentMain = () => {
           </div>
 
           {isClickedContent === '150' && <Content150 />}
-          {isClickedContent === '230' && <p>230</p>}
-          {isClickedContent === '330' && <p>330</p>}
+          {isClickedContent === '230' && <Content230 />}
+          {isClickedContent === '330' && <Content330 />}
         </div>
       </MainContainer>
     </>
