@@ -12,13 +12,13 @@ export const FuneralContentMain = () => {
   const handleContentClick = (content: string) => {
     setIsClickedContent(content)
   }
-  console.log(isClickedContent)
 
   return (
     <>
       <HeaderImg>상품소개</HeaderImg>
       <MainContainer>
         <div className="p-4 space-y-6 bg-white">
+        {/* <div className="p-4 space-y-6 bg-white flex flex-col items-center	"> */}
           {/* <div className="flex items-center justify-between p-2 bg-blue-100 rounded-md "> */}
           <div className="flex items-center justify-between p-2 ">
             <button
@@ -56,6 +56,7 @@ export const FuneralContentMain = () => {
           {isClickedContent === '150' && <Content150 />}
           {isClickedContent === '230' && <Content230 />}
           {isClickedContent === '330' && <Content330 />}
+  
         </div>
       </MainContainer>
     </>
