@@ -139,13 +139,13 @@ export default function Home() {
               key={idx} 
               className="bg-white rounded-lg shadow p-4 sm:p-6 flex flex-col items-center transform hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer group"
             >
-              <Image 
+              {/* <Image 
                 src={item.img} 
                 alt={item.title} 
                 width={80} 
                 height={80} 
                 className="mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300" 
-              />
+              /> */}
               <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2 group-hover:text-blue-600 transition-colors duration-300">
                 {item.title}
               </h3>
@@ -351,6 +351,80 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* [NEW] 장례진행절차 (가로 스텝) */}
+      <section className="w-full py-10 bg-gray-100/80 flex flex-col items-center">
+        <h2 className="text-xl font-bold mb-6">초인스상조 장례진행절차</h2>
+        <div className="flex flex-wrap justify-center gap-2 max-w-4xl">
+          {['사전상담','고인임종','전화','이송','빈소준비','인력배치','조문','입관','입관의식','종교의식','발인','장지이동','하관'].map((step, idx) => (
+            <div key={idx} className="flex flex-col items-center mx-1">
+              <div className="w-10 h-10 flex items-center justify-center bg-blue-200 rounded-full font-bold text-blue-700 mb-1">{idx+1}</div>
+              <span className="text-xs text-gray-700 text-center w-16">{step}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* [NEW] 장례진행 갤러리 */}
+      <section className="w-full py-10 bg-white/80 flex flex-col items-center">
+        <h2 className="text-xl font-bold mb-6">초인스상조 장례진행 갤러리</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl">
+          {[1,2,3,4,5,6,7,8].map((n) => (
+            <div key={n} className="rounded-lg overflow-hidden shadow">
+              <Image src={`/img/main/review_img${(n%3)+1}.jpg`} alt={`갤러리${n}`} width={200} height={120} className="object-cover w-full h-28" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* [NEW] 전국 장례시설 안내 */}
+      <section className="w-full py-10 bg-blue-100/80 flex flex-col items-center">
+        <h2 className="text-xl font-bold mb-6">전국 장례시설 안내</h2>
+        <div className="flex flex-col md:flex-row gap-8 items-center">
+          <div className="w-64 h-40 bg-white rounded-lg shadow flex items-center justify-center text-blue-700 font-bold text-lg">지도/이미지</div>
+          <ul className="flex flex-wrap gap-2 text-sm text-blue-900">
+            {['서울','경기','인천','강원','충북','충남','대전','경북','경남','대구','울산','부산','전북','전남','광주','제주'].map((r, i) => (
+              <li key={i} className="bg-white rounded px-3 py-1 shadow">{r}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* [NEW] 정보 안내 (FAQ, 공지, 문의, 상담전화) */}
+      <section className="w-full py-10 bg-white/80 flex flex-col items-center">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full max-w-5xl">
+          <div className="flex flex-col items-center p-4 bg-gray-50 rounded shadow">
+            <div className="font-bold mb-2">FAQ</div>
+            <div className="text-xs text-gray-500 mb-2">자주 묻는 질문</div>
+            <button className="text-blue-600 font-semibold">바로가기</button>
+          </div>
+          <div className="flex flex-col items-center p-4 bg-gray-50 rounded shadow">
+            <div className="font-bold mb-2">공지사항</div>
+            <div className="text-xs text-gray-500 mb-2">최신 소식 안내</div>
+            <button className="text-blue-600 font-semibold">바로가기</button>
+          </div>
+          <div className="flex flex-col items-center p-4 bg-gray-50 rounded shadow">
+            <div className="font-bold mb-2">문의사항</div>
+            <div className="text-xs text-gray-500 mb-2">궁금한 점 문의</div>
+            <button className="text-blue-600 font-semibold">바로가기</button>
+          </div>
+          <div className="flex flex-col items-center p-4 bg-blue-600 rounded shadow text-white">
+            <div className="font-bold mb-2">상담전화</div>
+            <div className="text-2xl font-extrabold mb-2">1588-1029</div>
+            <button className="bg-white text-blue-600 font-semibold rounded px-4 py-1">전화상담</button>
+          </div>
+        </div>
+      </section>
+
+      {/* [NEW] 협력업체 섹션 */}
+      <section className="w-full py-10 bg-blue-900/80 flex flex-col items-center">
+        <h2 className="text-xl font-bold mb-6 text-white">CHOINS PARTNERS</h2>
+        <div className="flex flex-wrap gap-4 justify-center">
+          {[1,2,3,4,5,6,7,8].map((n) => (
+            <div key={n} className="bg-white rounded shadow px-6 py-3 text-blue-900 font-bold">협력업체 {n}</div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
