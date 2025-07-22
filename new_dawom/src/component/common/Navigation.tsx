@@ -4,53 +4,59 @@ import { useState } from 'react';
 const nav = [
   {
     label: '회사소개',
+    href: '/companyInfo',
     sub: [
-      { label: '인사말', href: '/companyInfo/greeting' },
-      { label: '경영이념', href: '/companyInfo/philosophy' },
-      { label: '조직도', href: '/companyInfo/organization' },
-      { label: '오시는길', href: '/companyInfo/location' },
+      { label: '인사말', href: '/companyInfo?page=greeting' },
+      { label: '경영이념', href: '/companyInfo?page=philosophy' },
+      { label: '조직도', href: '/companyInfo?page=organization' },
+      { label: '오시는길', href: '/companyInfo?page=location' },
     ],
   },
   {
     label: '초인스서비스',
+    href: '/service/main',
     sub: [
       { label: '초인스상조서비스', href: '/service/main' },
-      { label: '후불제상조', href: '/service/postpaid' },
-      { label: '협력업체', href: '/service/partners' },
+      { label: '후불제상조', href: '/service/main?page=postpaid' },
+      { label: '협력업체', href: '/service/main?page=partners' },
     ],
   },
   {
     label: '초인스상품',
+    href: '/product',
     sub: [
-      { label: '보급형', href: '/product/basic' },
-      { label: '일반형', href: '/product/standard' },
-      { label: '고급형', href: '/product/premium' },
-      { label: '회사장', href: '/product/company' },
+      { label: '보급형', href: '/product?page=basic' },
+      { label: '일반형', href: '/product?page=standard' },
+      { label: '고급형', href: '/product?page=premium' },
+      { label: '회사장', href: '/product?page=company' },
     ],
   },
   {
     label: '장의정보',
+    href: '/funeralInfo',
     sub: [
-      { label: '장례절차', href: '/funeralInfo/procedure' },
-      { label: '종교별장례절차', href: '/funeralInfo/religion' },
-      { label: '장례행정', href: '/funeralInfo/admin' },
+      { label: '장례절차', href: '/funeralInfo?page=procedure' },
+      { label: '종교별장례절차', href: '/funeralInfo?page=religion' },
+      { label: '장례행정', href: '/funeralInfo?page=admin' },
     ],
   },
   {
     label: '장례시설',
+    href: '/facility',
     sub: [
-      { label: '장례식장', href: '/facility/hall' },
-      { label: '공원묘지', href: '/facility/park' },
-      { label: '화장장', href: '/facility/crematory' },
-      { label: '납골묘', href: '/facility/columbarium' },
+      { label: '장례식장', href: '/facility?page=hall' },
+      { label: '공원묘지', href: '/facility?page=park' },
+      { label: '화장장', href: '/facility?page=crematory' },
+      { label: '납골묘', href: '/facility?page=columbarium' },
     ],
   },
   {
     label: '고객센터',
+    href: '/customer',
     sub: [
-      { label: 'FAQ', href: '/customer/faq' },
-      { label: '공지사항', href: '/customer/notice' },
-      { label: '문의사항', href: '/customer/inquiry' },
+      { label: 'FAQ', href: '/customer?page=faq' },
+      { label: '공지사항', href: '/customer?page=notice' },
+      { label: '문의사항', href: '/customer?page=inquiry' },
     ],
   },
 ];
@@ -76,9 +82,13 @@ export default function Navigation() {
         <div className="hidden md:flex flex-1 items-center">
           {nav.map((menu, idx) => (
             <div key={idx} className="relative group mr-6">
-              <span className="font-semibold cursor-pointer hover:underline">
-                {menu.label}
-              </span>
+              {menu.href ? (
+                <Link href={menu.href} className="font-semibold cursor-pointer hover:underline">
+                  {menu.label}
+                </Link>
+              ) : (
+                <span className="font-semibold cursor-pointer hover:underline">{menu.label}</span>
+              )}
               <div className="absolute left-0 top-full bg-white text-gray-800 shadow-lg rounded mt-2 opacity-0 group-hover:opacity-100 transition-opacity z-20 min-w-[140px]">
                 {menu.sub.map((item, subIdx) => (
                   <Link key={subIdx} href={item.href} className="block px-4 py-2 hover:bg-blue-100 whitespace-nowrap">{item.label}</Link>

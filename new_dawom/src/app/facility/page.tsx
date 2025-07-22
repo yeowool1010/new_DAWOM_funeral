@@ -4,16 +4,17 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 const tabList = [
-  { label: '장례절차', value: 'procedure' },
-  { label: '종교별장례절차', value: 'religion' },
-  { label: '장례행정', value: 'admin' },
+  { label: '장례식장', value: 'hall' },
+  { label: '공원묘지', value: 'park' },
+  { label: '화장장', value: 'crematory' },
+  { label: '납골묘', value: 'columbarium' },
 ];
 
-export default function FuneralInfoMain() {
+export default function FacilityMain() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pageParam = searchParams.get('page');
-  const [tab, setTab] = useState('procedure');
+  const [tab, setTab] = useState('hall');
   const [showTitle, setShowTitle] = useState(false);
   const [showTabContent, setShowTabContent] = useState(false);
 
@@ -21,16 +22,16 @@ export default function FuneralInfoMain() {
     if (pageParam && tabList.some(t => t.value === pageParam)) {
       setTab(pageParam);
     } else {
-      setTab('procedure');
+      setTab('hall');
     }
   }, [pageParam]);
 
   const handleTab = (value: string) => {
     setTab(value);
-    if (value === 'procedure') {
-      router.replace('/funeralInfo');
+    if (value === 'hall') {
+      router.replace('/facility');
     } else {
-      router.replace(`/funeralInfo?page=${value}`);
+      router.replace(`/facility?page=${value}`);
     }
   };
 
@@ -49,12 +50,12 @@ export default function FuneralInfoMain() {
     <div className="w-full min-h-screen bg-white/80">
       {/* 상단 비주얼 영역 */}
       <div className="relative w-full h-56 sm:h-72 flex items-center justify-center">
-        <Image src="/img/main/brand01_bg.jpg" alt="비주얼" fill className="object-cover" priority />
+        <Image src="/img/main/brand02_bg.jpg" alt="비주얼" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-black bg-opacity-40" />
         <div className="relative z-10 flex flex-col items-center w-full">
-          <div className={`text-white text-2xl sm:text-3xl font-bold mb-2 mt-8 transition-all duration-700 animate-fadeInSlideRight ${showTitle ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>장의정보</div>
+          <div className={`text-white text-2xl sm:text-3xl font-bold mb-2 mt-8 transition-all duration-700 animate-fadeInSlideRight ${showTitle ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>장례시설</div>
           <div className={`h-1 w-12 bg-white rounded-full mb-2 transition-all duration-700 ${showTitle ? 'opacity-80 scale-x-100' : 'opacity-0 scale-x-50'}`}></div>
-          <div className={`text-white text-sm flex items-center gap-1 transition-all duration-700 delay-200 ${showTitle ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>🏠 홈 &gt; 장의정보 &gt; {tabList.find(t=>t.value===tab)?.label}</div>
+          <div className={`text-white text-sm flex items-center gap-1 transition-all duration-700 delay-200 ${showTitle ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>🏠 홈 &gt; 장례시설 &gt; {tabList.find(t=>t.value===tab)?.label}</div>
         </div>
       </div>
       {/* 탭 메뉴 */}
@@ -73,25 +74,31 @@ export default function FuneralInfoMain() {
       </div>
       {/* 탭 내용 */}
       <div className={`max-w-4xl mx-auto py-10 px-4 transition-all duration-700 animate-fadeInSlideRight ${showTabContent ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-        {tab === 'procedure' && (
+        {tab === 'hall' && (
           <div>
-            <h2 className="text-xl font-bold mb-4">장례절차</h2>
-            <p className="mb-4">초인스상조의 장례진행절차는 총 15단계로 구성되어 있습니다.<br/>사전상담부터 하관까지 체계적으로 안내해드립니다.</p>
+            <h2 className="text-xl font-bold mb-4">장례식장</h2>
+            <p className="mb-4">전국의 다양한 장례식장 정보를 안내해드립니다.<br/>가까운 장례식장 위치와 시설을 확인하세요.</p>
           </div>
         )}
-        {tab === 'religion' && (
+        {tab === 'park' && (
           <div>
-            <h2 className="text-xl font-bold mb-4">종교별 장례절차</h2>
-            <p className="mb-4">불교, 기독교, 천주교 등 종교별로 상이한 장례절차를 안내해드립니다.<br/>각 종교의 전통과 예법을 존중하여 맞춤 서비스를 제공합니다.</p>
+            <h2 className="text-xl font-bold mb-4">공원묘지</h2>
+            <p className="mb-4">쾌적한 환경의 공원묘지 정보를 제공합니다.<br/>전국 어디서나 이용 가능한 공원묘지를 안내해드립니다.</p>
           </div>
         )}
-        {tab === 'admin' && (
+        {tab === 'crematory' && (
           <div>
-            <h2 className="text-xl font-bold mb-4">장례행정</h2>
-            <p className="mb-4">사망신고, 화장허가 등 장례와 관련된 행정절차를 안내해드립니다.<br/>복잡한 행정업무도 초인스상조가 도와드립니다.</p>
+            <h2 className="text-xl font-bold mb-4">화장장</h2>
+            <p className="mb-4">전국의 화장장 위치와 이용 방법을 안내해드립니다.<br/>예약 및 절차에 대해 궁금하신 점은 문의해 주세요.</p>
+          </div>
+        )}
+        {tab === 'columbarium' && (
+          <div>
+            <h2 className="text-xl font-bold mb-4">납골묘</h2>
+            <p className="mb-4">다양한 형태의 납골묘 정보를 제공합니다.<br/>위치, 이용 방법 등 자세한 사항은 고객센터로 문의해 주세요.</p>
           </div>
         )}
       </div>
     </div>
   );
-}
+} 
