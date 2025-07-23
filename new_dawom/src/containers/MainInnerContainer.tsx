@@ -1,3 +1,4 @@
+import React from 'react';
 import { ReactNodeProps } from '../types'
 
 export const MainInnerContainer = ({ children }: ReactNodeProps) => {
