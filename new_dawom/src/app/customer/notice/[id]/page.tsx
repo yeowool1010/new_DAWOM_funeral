@@ -1,7 +1,29 @@
 'use client';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { useState } from 'react';
+
+// CustomerTabBar 컴포넌트 복사
+function CustomerTabBar({ currentTab }: { currentTab: string }) {
+  const tabList = [
+    { key: 'faq', label: 'FAQ' },
+    { key: 'notice', label: '공지사항' },
+    { key: 'qna', label: '문의사항' },
+  ];
+  return (
+    <div className="flex justify-center gap-2 mb-8 border-b pb-2">
+      {tabList.map(tab => (
+        <Link
+          key={tab.key}
+          href={`/customer?page=${tab.key}`}
+          className={`px-6 py-2 font-semibold border-b-2 ${currentTab === tab.key ? 'border-blue-600 text-blue-600' : 'border-transparent text-gray-500 hover:text-blue-600'}`}
+        >
+          {tab.label}
+        </Link>
+      ))}
+    </div>
+  );
+}
 
 const noticeList = [
   { id: 1, title: '연세대학교 총동문회 웹사이트 경조사페이지에 초인스상조 게시', date: '2021.01.07', views: 2149, author: '초인스상조', content: `연세대학교 총동문회 웹사이트 경조사페이지에\n상조회 협력사인 '초인스상조'가 게시되었습니다.\n\n연세대학교 동문여러분들의 많은 격려와 이용 부탁드립니다.\n항상 가족과 같은 마음으로 함께 하겠습니다.\n\n[연세대학교 총동문회 홈페이지 바로가기](https://www.yonsei.or.kr/)`, file: '첨부파일.pdf', prev: null, next: { id: 2, title: '카카오톡채널 개설' } },
@@ -55,9 +77,10 @@ export default function NoticeDetail() {
 
   return (
     <div className="max-w-3xl mx-auto py-10 px-4">
-      {/* 상단 제목 */}
+      {/* 상단 탭바 */}
+      <CustomerTabBar currentTab="notice" />
+      {/* 상세 내용 */}
       <h1 className="text-2xl font-bold text-center mb-8">공지사항</h1>
-      {/* 제목/작성자/날짜/조회수 */}
       <div className="border-b pb-4 mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         <div className="font-semibold text-lg">{notice.title}</div>
         <div className="flex flex-wrap gap-4 text-sm text-gray-500 md:justify-end">
@@ -66,23 +89,19 @@ export default function NoticeDetail() {
           <span>조회수: {notice.views}</span>
         </div>
       </div>
-      {/* 첨부파일 */}
       {notice.file && (
         <div className="flex items-center gap-2 border rounded bg-gray-50 px-4 py-3 mb-6">
           <span className="text-lg">📄</span>
           <span className="font-medium">{notice.file}</span>
         </div>
       )}
-      {/* 본문 */}
       <div className="mb-12 text-gray-800 min-h-[120px] leading-relaxed">
         {renderContent(notice.content)}
       </div>
-      {/* 이전/다음글 */}
       <div className="border-t divide-y divide-gray-200 mb-8">
         <AccordionNav label="이전글" item={notice.prev} />
         <AccordionNav label="다음글" item={notice.next} />
       </div>
-      {/* 목록으로 버튼 */}
       <div className="flex justify-end">
         <Link href="/customer?page=notice" className="inline-block border border-gray-400 px-8 py-2 rounded hover:bg-gray-100">목록으로</Link>
       </div>
