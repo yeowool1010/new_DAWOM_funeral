@@ -1,4 +1,5 @@
 import { Mail, Github, Facebook, Youtube, Linkedin, Twitter, Mastodon } from './icons'
+import React from 'react';
 
 const components = {
   mail: Mail,

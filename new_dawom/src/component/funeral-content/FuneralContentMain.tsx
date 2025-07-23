@@ -1,10 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { MainContainer } from '../../containers'
 import { HeaderImg } from '../common'
 import { Content150, Content230, Content330  } from './contentPage'
-import Image from 'next/image'
 
 export const FuneralContentMain = () => {
   const [isClickedContent, setIsClickedContent] = useState('150')

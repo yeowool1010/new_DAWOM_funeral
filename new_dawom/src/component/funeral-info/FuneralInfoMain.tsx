@@ -1,4 +1,5 @@
 import { MainContainer } from '../../containers'
+import React from 'react';
 
 export const FuneralInfoMain = () => {
   return (

@@ -1,6 +1,7 @@
 import { MainContainer } from '../../containers'
 import { HeaderImg } from '../common'
 import Image from 'next/image'
+import React from 'react';
 
 export const CompanyInfoMain = () => {
   return (

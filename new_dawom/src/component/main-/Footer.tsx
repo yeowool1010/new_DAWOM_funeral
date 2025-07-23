@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import SocialIcon from './social-icons'
 import siteMetadata from '../../data/siteMetadata'
+import React from 'react';
 
 export const Footer = () => {
   return (

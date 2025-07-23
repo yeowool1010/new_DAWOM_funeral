@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { QA } from './QA'
+import React from 'react';
 
 export const Content230 = () => {
   return (

@@ -1,6 +1,5 @@
-import { MainContainer, MainInnerContainer } from '../../containers'
-import { MainReview } from '../main-'
-import Image from 'next/image'
+import { MainInnerContainer } from '../../containers';
+import React from 'react';
 
 export const HomeCompanyInfo = () => {
   return (

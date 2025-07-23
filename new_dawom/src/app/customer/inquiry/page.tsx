@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function Inquiry() {
   return (
     <div className="max-w-2xl mx-auto">

@@ -1,9 +1,8 @@
 'use client';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const tabList = [
   { label: 'FAQ', value: 'faq' },
@@ -32,7 +31,6 @@ const noticeList = [
 export default function CustomerMain() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const pathname = usePathname();
   const pageParam = searchParams.get('page');
   const idParam = searchParams.get('id');
   const [tab, setTab] = useState('faq');
@@ -354,29 +352,6 @@ function NoticeDetail({ id }: { id: string }) {
       <div className="flex justify-end px-8 py-6">
         <button className="border px-6 py-2 rounded bg-gray-50 hover:bg-gray-100" onClick={() => router.push('/customer?page=notice')}>목록으로</button>
       </div>
-    </div>
-  );
-}
-
-// CustomerPage 컴포넌트 내에서 탭바를 별도 컴포넌트로 분리
-function CustomerTabBar({ currentTab }: { currentTab: string }) {
-  const router = useRouter();
-  const tabList = [
-    { key: 'faq', label: 'FAQ' },
-    { key: 'notice', label: '공지사항' },
-    { key: 'qna', label: '문의사항' },
-  ];
-  return (
-    <div className="flex justify-center gap-2 mb-8 border-b pb-2">
-      {tabList.map(tab => (
-        <button
-          key={tab.key}
-          className={`px-6 py-2 font-semibold border-b-2 ${currentTab === tab.key ? 'border-blue-600 text-blue-600' : 'border-transparent text-gray-500 hover:text-blue-600'}`}
-          onClick={() => router.push(`/customer?page=${tab.key}`)}
-        >
-          {tab.label}
-        </button>
-      ))}
     </div>
   );
 } 

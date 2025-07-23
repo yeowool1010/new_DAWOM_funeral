@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 
@@ -145,8 +145,6 @@ export default function FacilityMain() {
   }, [tab]);
 
   // facilityTab 상태 추가 (hall, park, crematory, columbarium)
-  const [facilityTab, setFacilityTab] = useState(tab); // tab은 기존 라우팅에서 받아옴
-
   // 탭별 데이터
   const facilityData: Record<string, Record<string, { name: string; address: string; tel: string }[]>> = {
     hall: facilityList,

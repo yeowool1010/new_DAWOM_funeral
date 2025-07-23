@@ -1,3 +1,4 @@
+import React from 'react';
 export default function FAQ() {
   return (
     <div className="max-w-2xl mx-auto">

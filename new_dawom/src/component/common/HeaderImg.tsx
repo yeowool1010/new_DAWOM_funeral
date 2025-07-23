@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { ReactNodeProps } from '../../types'
+import React from 'react';
 
 /**
  * `HeaderImg` 컴포넌트는 상세 페이지의 제목을 보여주는 이미지 위에 오버레이 형태로 텍스트를 표시하는 컴포넌트입니다.

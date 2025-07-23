@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -36,16 +36,6 @@ export default function Home() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isClient]);
-
-  // 모바일 화면 여부
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    if (!isClient) return;
-    const checkMobile = () => setIsMobile(window.innerWidth <= 640);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
   }, [isClient]);
 
   const slides = [

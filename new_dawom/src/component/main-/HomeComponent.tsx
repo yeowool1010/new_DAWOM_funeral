@@ -1,5 +1,5 @@
-import { MainContainer, MainInnerContainer } from '../../containers'
 import { MainReview } from '../main-'
+import React from 'react';
 
 export const HomeComponent = () => {
   return (

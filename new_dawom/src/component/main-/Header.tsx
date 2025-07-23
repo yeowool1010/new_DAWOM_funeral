@@ -1,17 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import { useRecoilValue } from 'recoil'
-import { toggleState } from '../../atom/RecoilState'
 import { useRecoilState } from 'recoil'
+import { toggleState } from '../../atom/RecoilState'
 
 export const Header = () => {
   const [isMenuOpenToggled, setIsMenuOpenToggled] = useRecoilState(toggleState)
   // const isToggled = useRecoilValue(toggleState)
-
-  const [isScrollDown, setIsScrollDown] = useState(true)
 
   useEffect(() => {
     // 스크롤 위치 감지 함수
@@ -32,14 +28,10 @@ export const Header = () => {
     }
   }, [])
 
-  let menuOpen = true
+  const [isScrollDown, setIsScrollDown] = useState(true)
 
   const [isMenuHidden, setIsMenuHidden] = useState(false)
   const [isInfoMenuHidden, setIsInfoMenuHidden] = useState(false)
-
-  const handleMenuHidden = () => {
-    setIsMenuHidden(!isMenuHidden)
-  }
 
   return (
     <>
