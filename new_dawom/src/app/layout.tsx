@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* 어두운 오버레이 */}
           <div className="absolute inset-0 bg-black bg-opacity-40" />
         </div>
-        <Header />
+        {/* <Header /> */}
         <Navigation />
         <main className="flex-1 w-full">{children}</main>
         <Footer />
