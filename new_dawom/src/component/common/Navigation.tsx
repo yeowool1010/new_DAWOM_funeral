@@ -97,8 +97,8 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-40" ref={navBarRef}>
-      <div className={`max-w-7xl mx-auto flex items-center px-6 relative min-h-[64px] border-b border-white/30 transition-colors duration-200 ${hoverIdx !== null || isScrolled ? 'bg-white' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-40 border-b transition-colors duration-500 ease-in-out ${hoverIdx !== null || isScrolled ? 'bg-white border-gray-200' : 'bg-transparent border-white/30'}`} ref={navBarRef}>
+      <div className="max-w-7xl mx-auto flex items-center px-6 relative min-h-[64px] border-b border-white/30">
         {/* 로고+텍스트 */}
         <Link href="/" className="flex items-center min-w-[220px]">
           <img src="/img/main/logo.png" alt="로고" className="h-12 w-auto mr-2" />
