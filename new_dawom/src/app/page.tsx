@@ -10,6 +10,87 @@ export default function Home() {
   const [isClient, setIsClient] = useState(false);
   const [showPhoneBox, setShowPhoneBox] = useState(false);
   const [showKakaoBox, setShowKakaoBox] = useState(false);
+  const [galleryTab, setGalleryTab] = useState(0);
+  const [galleryImages, setGalleryImages] = useState([
+    [
+      '/img/main/gallery/day1_1.jpg',
+      '/img/main/gallery/day1_2.jpg',
+      '/img/main/gallery/day1_3.jpg',
+    ],
+    [
+      '/img/main/gallery/day2_1.jpg',
+      '/img/main/gallery/day2_2.jpg',
+      '/img/main/gallery/day2_3.jpg',
+    ],
+    [
+      '/img/main/gallery/day3_1.jpg',
+      '/img/main/gallery/day3_2.jpg',
+      '/img/main/gallery/day3_3.jpg',
+    ],
+  ]);
+
+  // 협력업체(파트너) 캐러셀 상태/핸들러/데이터
+  const [partnerIndex, setPartnerIndex] = useState(0);
+  const visiblePartnerCount = 4;
+  // partnerLogos 20개 예시로 확장
+  const partnerLogos = [
+    {name:'연세체육회', img:'/img/companyInfo/intro01_img1.jpg'},
+    {name:'대한아이스하키협회', img:'/img/companyInfo/intro01_img2.jpg'},
+    {name:'JESTERS', img:'/img/companyInfo/intro01_img3.jpg'},
+    {name:'보성자동차정비', img:'/img/companyInfo/intro02_bg.jpg'},
+    {name:'파트너5', img:'/img/main/review_img1.jpg'},
+    {name:'파트너6', img:'/img/main/review_img2.jpg'},
+    {name:'파트너7', img:'/img/main/review_img3.jpg'},
+    {name:'파트너8', img:'/img/main/brand01_bg.jpg'},
+    {name:'파트너9', img:'/img/main/brand02_bg.jpg'},
+    {name:'파트너10', img:'/img/main/ms_pdt_bg.jpg'},
+    {name:'파트너11', img:'/img/main/review_img1.jpg'},
+    {name:'파트너12', img:'/img/main/review_img2.jpg'},
+    {name:'파트너13', img:'/img/main/review_img3.jpg'},
+    {name:'파트너14', img:'/img/main/brand01_bg.jpg'},
+    {name:'파트너15', img:'/img/main/brand02_bg.jpg'},
+    {name:'파트너16', img:'/img/main/ms_pdt_bg.jpg'},
+    {name:'파트너17', img:'/img/main/review_img1.jpg'},
+    {name:'파트너18', img:'/img/main/review_img2.jpg'},
+    {name:'파트너19', img:'/img/main/review_img3.jpg'},
+    {name:'파트너20', img:'/img/main/brand01_bg.jpg'},
+  ];
+  // 무한루프 캐러셀을 위해 앞뒤로 복제
+  const extendedLogos = [
+    ...partnerLogos.slice(-visiblePartnerCount),
+    ...partnerLogos,
+    ...partnerLogos.slice(0, visiblePartnerCount),
+  ];
+  const [carouselIndex, setCarouselIndex] = useState(visiblePartnerCount);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // 자동 슬라이드
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNextPartner();
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handlePrevPartner = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCarouselIndex(idx => idx - 1);
+  };
+  const handleNextPartner = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCarouselIndex(idx => idx + 1);
+  };
+  // 트랜지션 끝나면 무한루프 위치 조정
+  const handleTransitionEnd = () => {
+    setIsTransitioning(false);
+    if (carouselIndex === 0) {
+      setCarouselIndex(partnerLogos.length);
+    } else if (carouselIndex === partnerLogos.length + visiblePartnerCount) {
+      setCarouselIndex(visiblePartnerCount);
+    }
+  };
 
   // 클라이언트 사이드 확인
   useEffect(() => {
@@ -81,7 +162,7 @@ export default function Home() {
         {/* 슬라이더 컨텐츠 */}
         <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-white drop-shadow-lg tracking-widest animate-fadeIn">
-            초인소장조
+            초인소상조
           </h1>
           <p className="text-2xl sm:text-3xl md:text-4xl mb-10 text-white font-semibold animate-fadeIn animation-delay-200 drop-shadow">
             전국 모든지역 이용이 가능합니다.
@@ -102,43 +183,91 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 서비스/상품 소개 - 호버 효과 */}
-      <section className="w-full py-8 sm:py-12 px-4 sm:px-8">
-        <h2 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 animate-fadeIn">
-          초인스상조의 맞춤상품
+      {/* [NEW] 완전후불제 초인스상조 4박스 섹션 */}
+      <section className="w-full max-w-6xl mx-auto flex flex-col items-center py-12 px-4">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-10">
+          완전후불제 <span className="text-[#17427b]">초인스상조</span>
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
-          {[
-            { title: '보급형', price: '230만원', img: '/img/main/company_ico1.png' },
-            { title: '일반형', price: '330만원', img: '/img/main/company_ico2.png' },
-            { title: '고급형', price: '430만원', img: '/img/main/ms_pdt_ico.png' },
-            { title: '회사장', price: '상담 후 결정', img: '/img/main/brand02_txt.png' },
-          ].map((item, idx) => (
-            <div 
-              key={idx} 
-              className="bg-white rounded-lg shadow p-4 sm:p-6 flex flex-col items-center transform hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer group"
-            >
-              {/* <Image 
-                src={item.img} 
-                alt={item.title} 
-                width={80} 
-                height={80} 
-                className="mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300" 
-              /> */}
-              <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                {item.title}
-              </h3>
-              <p className="text-blue-700 font-bold text-base sm:text-lg mb-1 sm:mb-2">
-                {item.price}
-              </p>
-              <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-4 text-center">
-                해당 상품에 대한 간략한 설명이 들어갑니다.
-              </p>
-              <button className="bg-blue-600 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded hover:bg-blue-700 text-sm sm:text-base transform hover:scale-105 transition-all duration-200">
-                자세히 보기
-              </button>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full">
+          {/* 1 */}
+          <div className="flex flex-col items-center text-center">
+            <img src="/img/main/company_ico1.png" alt="합리적인 가격" className="w-40 h-32 object-cover mb-4 rounded" />
+            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#17427b] text-white font-bold text-lg mb-2">1</div>
+            <div className="font-bold text-[#17427b] text-lg mb-1">합리적인 가격으로 모십니다</div>
+            <div className="text-gray-600 text-sm">합리적인 가격과 고품질 생모로 고객감동의 서비스를 추구합니다.</div>
+          </div>
+          {/* 2 */}
+          <div className="flex flex-col items-center text-center">
+            <img src="/img/main/company_ico2.png" alt="전국 모든지역 이용" className="w-40 h-32 object-cover mb-4 rounded" />
+            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#17427b] text-white font-bold text-lg mb-2">2</div>
+            <div className="font-bold text-[#17427b] text-lg mb-1">전국 모든지역 이용이 가능합니다.</div>
+            <div className="text-gray-600 text-sm">국가공인과 경제지도사들을 전국네트워크망을 구축하여 24시간 운영하고 있습니다.</div>
+          </div>
+          {/* 3 */}
+          <div className="flex flex-col items-center text-center">
+            <img src="/img/main/ms_pdt_ico.png" alt="서비스 완료 후 정산" className="w-40 h-32 object-cover mb-4 rounded" />
+            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#17427b] text-white font-bold text-lg mb-2">3</div>
+            <div className="font-bold text-[#17427b] text-lg mb-1">서비스 완료 후 정산합니다</div>
+            <div className="text-gray-600 text-sm">회원 가입비나 월 납입금에 대한 부담이 전혀 없는 완전후불제를 실시하고 있습니다.</div>
+          </div>
+          {/* 4 */}
+          <div className="flex flex-col items-center text-center">
+            <img src="/img/main/brand02_txt.png" alt="신뢰성 자랑" className="w-40 h-32 object-cover mb-4 rounded" />
+            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#17427b] text-white font-bold text-lg mb-2">4</div>
+            <div className="font-bold text-[#17427b] text-lg mb-1">신뢰성을 자랑합니다</div>
+            <div className="text-gray-600 text-sm">기업, 단체들과 협약하고 있으며, 믿고 맡길 수 있는 신뢰의 서비스를 제공합니다.</div>
+          </div>
+        </div>
+      </section>
+
+      {/* [NEW] 초인스상조의 완전후불제 맞춤상품 섹션 */}
+      <section className="relative w-full py-16 flex flex-col items-center justify-center" style={{minHeight:'340px'}}>
+        {/* 배경 이미지 + 오버레이 */}
+        <div className="absolute inset-0 w-full h-full">
+          <img src="/img/main/use_bg.jpg" alt="배경" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#17427b]/70" />
+        </div>
+        <div className="relative z-10 max-w-7xl w-full mx-auto flex flex-col items-center">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-center text-white mb-2">초인스상조의 완전후불제 맞춤상품</h2>
+          <p className="text-white text-center mb-10 text-sm sm:text-base">초인스상조는 기업의 수익만을 생각하지 않고 합리적 상품과 고품격 서비스를 제공합니다.</p>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full px-4">
+            {/* 상품 카드 1 */}
+            <div className="flex flex-col items-center">
+              <div className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg mb-4">
+                <div className="text-[#17427b] font-bold text-lg mb-1">보급형</div>
+                <div className="text-3xl font-extrabold text-[#17427b]">230 <span className="text-xl font-bold">만원</span></div>
+                <div className="text-gray-500 text-xs mt-2">해당 메뉴에 대한 간략한 설명이 들어갑니다.</div>
+                <a href="#" className="mt-4 text-xs text-[#17427b] font-bold flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block">→</span></a>
+              </div>
             </div>
-          ))}
+            {/* 상품 카드 2 */}
+            <div className="flex flex-col items-center">
+              <div className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg mb-4">
+                <div className="text-[#17427b] font-bold text-lg mb-1">일반형</div>
+                <div className="text-3xl font-extrabold text-[#17427b]">330 <span className="text-xl font-bold">만원</span></div>
+                <div className="text-gray-500 text-xs mt-2">해당 메뉴에 대한 간략한 설명이 들어갑니다.</div>
+                <a href="#" className="mt-4 text-xs text-[#17427b] font-bold flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block">→</span></a>
+              </div>
+            </div>
+            {/* 상품 카드 3 */}
+            <div className="flex flex-col items-center">
+              <div className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg mb-4">
+                <div className="text-[#17427b] font-bold text-lg mb-1">고급형</div>
+                <div className="text-3xl font-extrabold text-[#17427b]">430 <span className="text-xl font-bold">만원</span></div>
+                <div className="text-gray-500 text-xs mt-2">해당 메뉴에 대한 간략한 설명이 들어갑니다.</div>
+                <a href="#" className="mt-4 text-xs text-[#17427b] font-bold flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block">→</span></a>
+              </div>
+            </div>
+            {/* 상품 카드 4 */}
+            <div className="flex flex-col items-center">
+              <div className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg mb-4">
+                <div className="text-[#17427b] font-bold text-lg mb-1">회사장</div>
+                <div className="text-2xl font-extrabold text-[#17427b]">상담 후 결정</div>
+                <div className="text-gray-500 text-xs mt-2">해당 메뉴에 대한 간략한 설명이 들어갑니다.</div>
+                <a href="#" className="mt-4 text-xs text-[#17427b] font-bold flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block">→</span></a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -167,43 +296,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 장례시설 안내, 고객센터, 협력업체 - 스크롤 인터랙션 */}
-      <section className={`w-full py-8 sm:py-12 px-4 sm:px-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 max-w-7xl mx-auto transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}>
-        {/* 장례시설 */}
-        <div className="bg-white rounded-lg shadow p-4 sm:p-6 mb-4 md:mb-0 hover:shadow-xl transition-shadow duration-300">
-          <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-4">전국 장례시설 안내</h3>
-          <ul className="space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">장례식장</li>
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">공원묘지</li>
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">화장장</li>
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">납골묘</li>
-          </ul>
-        </div>
-        {/* 고객센터 */}
-        <div className="bg-white rounded-lg shadow p-4 sm:p-6 mb-4 md:mb-0 hover:shadow-xl transition-shadow duration-300">
-          <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-4">고객센터</h3>
-          <ul className="space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">FAQ</li>
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">공지사항</li>
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">문의사항</li>
-            <li>24시간 긴급전화: <span className="font-bold text-blue-700">1588-1029</span></li>
-          </ul>
-        </div>
-        {/* 협력업체 */}
-        <div className="bg-white rounded-lg shadow p-4 sm:p-6 hover:shadow-xl transition-shadow duration-300">
-          <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-4">협력업체</h3>
-          <ul className="space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">연대총동문회</li>
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">AJ토탈</li>
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">연세대 치과대학 교수평의회</li>
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">아주그룹</li>
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">대한간호협회</li>
-            <li className="hover:text-blue-600 transition-colors duration-200 cursor-pointer">...</li>
-          </ul>
+      {/* 장례진행절차 갤러리 & 전국의 장례시설 */}
+      <section className="w-full max-w-7xl mx-auto px-4 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* 장례진행 갤러리 */}
+          <div className="bg-white rounded-lg shadow p-6 flex flex-col">
+            <h3 className="text-lg font-bold mb-4"><span className="text-[#22201b]">초인스상조</span> <span className="text-[#17427b]">장례진행 갤러리</span></h3>
+            {/* 탭 */}
+            <div className="flex border-b mb-4">
+              {['1일차','2일차','3일차'].map((tab, idx) => (
+                <button
+                  key={tab}
+                  className={`flex-1 py-2 text-sm font-semibold border-b-2 transition-colors duration-150 ${galleryTab===idx ? 'border-[#17427b] text-[#17427b] bg-gray-50' : 'border-transparent text-gray-700 bg-white hover:bg-gray-50'}`}
+                  onClick={()=>setGalleryTab(idx)}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+            {/* 이미지 그리드 */}
+            <div className="grid grid-cols-3 gap-2">
+              {galleryImages[galleryTab].map((img, i) => (
+                <div key={i} className="aspect-[4/3] bg-gray-100 rounded overflow-hidden flex items-center justify-center">
+                  <img src={img} alt={`장례진행${galleryTab+1}일차${i+1}`} className="object-cover w-full h-full" />
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* 전국의 장례시설 */}
+          <div className="bg-[#f5f8fa] rounded-lg shadow p-6 flex flex-col items-center">
+            <h3 className="text-lg font-bold mb-4">전국의 <span className="text-[#17427b]">장례시설</span></h3>
+            <div className="flex flex-col md:flex-row items-center w-full">
+              {/* 지도 이미지 */}
+              <div className="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                <img src="/img/main/korea_map_sample.png" alt="전국지도" className="w-48 h-56 object-contain" />
+              </div>
+              {/* 설명+범례 */}
+              <div className="flex-1 flex flex-col justify-center">
+                <p className="text-gray-700 text-sm mb-4">장례시설 검색으로 전국의 장례시설을 초인스상조가 안내해 드립니다.</p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2"><span className="inline-block w-4 h-4 rounded-full bg-[#17427b]"></span> 장례식장</li>
+                  <li className="flex items-center gap-2"><span className="inline-block w-4 h-4 rounded-full bg-[#2e8bc0]"></span> 공원묘지</li>
+                  <li className="flex items-center gap-2"><span className="inline-block w-4 h-4 rounded-full bg-[#fbb034]"></span> 화장장</li>
+                  <li className="flex items-center gap-2"><span className="inline-block w-4 h-4 rounded-full bg-[#e94e77]"></span> 납골묘</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
 
       {/* 플로팅 위젯들 - 클라이언트 사이드에서만 렌더링 */}
       {isClient && (
@@ -331,77 +473,111 @@ export default function Home() {
         </div>
       )}
 
-      {/* [NEW] 장례진행절차 (가로 스텝) */}
-      <section className="w-full py-10 bg-gray-100/80 flex flex-col items-center">
-        <h2 className="text-xl font-bold mb-6">초인스상조 장례진행절차</h2>
-        <div className="flex flex-wrap justify-center gap-2 max-w-4xl">
-          {['사전상담','고인임종','전화','이송','빈소준비','인력배치','조문','입관','입관의식','종교의식','발인','장지이동','하관'].map((step, idx) => (
-            <div key={idx} className="flex flex-col items-center mx-1">
-              <div className="w-10 h-10 flex items-center justify-center bg-blue-200 rounded-full font-bold text-blue-700 mb-1">{idx+1}</div>
-              <span className="text-xs text-gray-700 text-center w-16">{step}</span>
-            </div>
-          ))}
-        </div>
-      </section>
 
-      {/* [NEW] 장례진행 갤러리 */}
-      <section className="w-full py-10 bg-white/80 flex flex-col items-center">
-        <h2 className="text-xl font-bold mb-6">초인스상조 장례진행 갤러리</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl">
-          {[1,2,3,4,5,6,7,8].map((n) => (
-            <div key={n} className="rounded-lg overflow-hidden shadow">
-              <Image src={`/img/main/review_img${(n%3)+1}.jpg`} alt={`갤러리${n}`} width={200} height={120} className="object-cover w-full h-28" />
-            </div>
-          ))}
-        </div>
-      </section>
 
-      {/* [NEW] 전국 장례시설 안내 */}
-      <section className="w-full py-10 bg-blue-100/80 flex flex-col items-center">
-        <h2 className="text-xl font-bold mb-6">전국 장례시설 안내</h2>
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="w-64 h-40 bg-white rounded-lg shadow flex items-center justify-center text-blue-700 font-bold text-lg">지도/이미지</div>
-          <ul className="flex flex-wrap gap-2 text-sm text-blue-900">
-            {['서울','경기','인천','강원','충북','충남','대전','경북','경남','대구','울산','부산','전북','전남','광주','제주'].map((r, i) => (
-              <li key={i} className="bg-white rounded px-3 py-1 shadow">{r}</li>
-            ))}
-          </ul>
+      {/* [NEW] 장의정보 안내 섹션 */}
+      <section className="relative w-full py-16 flex flex-col items-center justify-center" style={{minHeight:'280px'}}>
+        {/* 배경 이미지+블루 오버레이 */}
+        <div className="absolute inset-0 w-full h-full">
+          <img src="/img/main/use_bg.jpg" alt="배경" className="w-full h-full object-cover blur-sm scale-105" />
+          <div className="absolute inset-0 bg-[#17427b]/80" />
+        </div>
+        <div className="relative z-10 max-w-5xl w-full mx-auto flex flex-col items-center">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-center text-white mb-10">
+            초인스상조가 각종 <span className="text-[#ffe066]">장의정보에 대해</span> 알려드립니다.
+          </h2>
+          <div className="w-full flex flex-col md:flex-row items-center justify-center gap-8">
+            {/* 장례절차 */}
+            <div className="flex flex-col items-center text-white flex-1 min-w-[120px]">
+              <div className="mb-4">
+                <img src="/img/svg/procedure.svg" alt="장례절차" className="w-14 h-14" />
+              </div>
+              <div className="font-bold text-lg">장례절차</div>
+            </div>
+            {/* 종교별 장례절차 */}
+            <div className="flex flex-col items-center text-white flex-1 min-w-[120px]">
+              <div className="mb-4">
+                <img src="/img/svg/religion.svg" alt="종교별 장례절차" className="w-14 h-14" />
+              </div>
+              <div className="font-bold text-lg">종교별 장례절차</div>
+            </div>
+            {/* 장례행정 */}
+            <div className="flex flex-col items-center text-white flex-1 min-w-[120px]">
+              <div className="mb-4">
+                <img src="/img/svg/admin.svg" alt="장례행정" className="w-14 h-14" />
+              </div>
+              <div className="font-bold text-lg">장례행정</div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* [NEW] 정보 안내 (FAQ, 공지, 문의, 상담전화) */}
-      <section className="w-full py-10 bg-white/80 flex flex-col items-center">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full max-w-5xl">
-          <div className="flex flex-col items-center p-4 bg-gray-50 rounded shadow">
-            <div className="font-bold mb-2">FAQ</div>
-            <div className="text-xs text-gray-500 mb-2">자주 묻는 질문</div>
-            <button className="text-blue-600 font-semibold">바로가기</button>
+      <section className="w-full max-w-7xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {/* FAQ */}
+          <div className="border rounded bg-white flex flex-col h-full min-h-[350px]">
+            <img src="/img/main/review_img1.jpg" alt="FAQ" className="w-full h-32 object-cover rounded-t" />
+            <div className="p-5 flex flex-col flex-1">
+              <div className="font-bold text-lg mb-2">FAQ</div>
+              <div className="text-gray-600 text-sm mb-6">초인스상조에 관해 자주 묻는 질문과 답변을 보실 수 있습니다.</div>
+              <a href="/customer/faq" className="mt-auto text-xs font-bold text-[#17427b] flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block w-4 h-4"><svg fill="none" stroke="#17427b" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+            </div>
           </div>
-          <div className="flex flex-col items-center p-4 bg-gray-50 rounded shadow">
-            <div className="font-bold mb-2">공지사항</div>
-            <div className="text-xs text-gray-500 mb-2">최신 소식 안내</div>
-            <button className="text-blue-600 font-semibold">바로가기</button>
+          {/* 공지사항 */}
+          <div className="border rounded bg-white flex flex-col h-full min-h-[350px]">
+            <img src="/img/main/review_img2.jpg" alt="공지사항" className="w-full h-32 object-cover rounded-t" />
+            <div className="p-5 flex flex-col flex-1">
+              <div className="font-bold text-lg mb-2">공지사항</div>
+              <div className="text-gray-600 text-sm mb-6">초인스상조의 최근 소식과 정보들을 보실 수 있습니다.</div>
+              <a href="/customer/notice" className="mt-auto text-xs font-bold text-[#17427b] flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block w-4 h-4"><svg fill="none" stroke="#17427b" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+            </div>
           </div>
-          <div className="flex flex-col items-center p-4 bg-gray-50 rounded shadow">
-            <div className="font-bold mb-2">문의사항</div>
-            <div className="text-xs text-gray-500 mb-2">궁금한 점 문의</div>
-            <button className="text-blue-600 font-semibold">바로가기</button>
+          {/* 문의사항 */}
+          <div className="border rounded bg-white flex flex-col h-full min-h-[350px]">
+            <img src="/img/main/review_img3.jpg" alt="문의사항" className="w-full h-32 object-cover rounded-t" />
+            <div className="p-5 flex flex-col flex-1">
+              <div className="font-bold text-lg mb-2">문의사항</div>
+              <div className="text-gray-600 text-sm mb-6">초인스상조에게 궁금한 사항을 문의해 주세요.</div>
+              <a href="/customer/inquiry" className="mt-auto text-xs font-bold text-[#17427b] flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block w-4 h-4"><svg fill="none" stroke="#17427b" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+            </div>
           </div>
-          <div className="flex flex-col items-center p-4 bg-blue-600 rounded shadow text-white">
-            <div className="font-bold mb-2">상담전화</div>
-            <div className="text-2xl font-extrabold mb-2">1588-1029</div>
-            <button className="bg-white text-blue-600 font-semibold rounded px-4 py-1">전화상담</button>
+          {/* 24시간 상담 */}
+          <div className="rounded bg-[#17427b] flex flex-col h-full justify-between p-6 text-white min-h-[350px]">
+            <div>
+              <div className="font-bold text-lg mb-2">사전 상담 및<br/>24시간 긴급전화</div>
+              <div className="text-sm mb-8">고객센터는 언제나 연락이 열려있습니다.</div>
+            </div>
+            <div className="mt-auto">
+              <div className="font-bold text-2xl mb-1">Tel. 1588-1029</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* [NEW] 협력업체 섹션 */}
-      <section className="w-full py-10 bg-blue-900/80 flex flex-col items-center">
-        <h2 className="text-xl font-bold mb-6 text-white">CHOINS PARTNERS</h2>
-        <div className="flex flex-wrap gap-4 justify-center">
-          {[1,2,3,4,5,6,7,8].map((n) => (
-            <div key={n} className="bg-white rounded shadow px-6 py-3 text-blue-900 font-bold">협력업체 {n}</div>
-          ))}
+      {/* [NEW] 협력업체(파트너) 캐러셀 섹션 */}
+      <section className="relative w-full py-16 bg-[#eaf3fb] flex flex-col items-center justify-center">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-2">CHOINS PARTNERS</h2>
+        <p className="text-gray-600 text-center mb-8">초인스상조와 함께하는 협력업체 입니다.</p>
+        <div className="relative w-full max-w-4xl mx-auto flex items-center">
+          {/* 왼쪽 화살표 (박스 안쪽) */}
+          <button onClick={handlePrevPartner} className="absolute left-4 z-10 w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-2xl text-gray-500 hover:bg-gray-100 transition-all duration-150 top-1/2 -translate-y-1/2">
+            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          {/* 캐러셀 */}
+          <div className="w-full bg-white rounded shadow overflow-hidden py-2">
+            <div className={`flex ${isTransitioning ? 'transition-transform duration-500' : ''}`} style={{transform:`translateX(-${carouselIndex * (100/visiblePartnerCount)}%)`}} onTransitionEnd={handleTransitionEnd}>
+              {extendedLogos.map((logo, idx) => (
+                <div key={idx} className="flex-shrink-0 w-1/4 px-4 flex items-center justify-center h-24">
+                  <img src={logo.img} alt={logo.name} className="max-h-16 object-contain" />
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* 오른쪽 화살표 (박스 안쪽) */}
+          <button onClick={handleNextPartner} className="absolute right-4 z-10 w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-2xl text-gray-500 hover:bg-gray-100 transition-all duration-150 top-1/2 -translate-y-1/2">
+            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
         </div>
       </section>
     </div>
