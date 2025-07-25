@@ -13,19 +13,19 @@ export default function Home() {
   const [galleryTab, setGalleryTab] = useState(0);
   const [galleryImages, setGalleryImages] = useState([
     [
-      '/img/main/gallery/day1_1.jpg',
-      '/img/main/gallery/day1_2.jpg',
-      '/img/main/gallery/day1_3.jpg',
+      '/img/main/review_img1.jpg',
+      '/img/main/brand01_bg.jpg',
+      '/img/main/review_img2.jpg',
     ],
     [
-      '/img/main/gallery/day2_1.jpg',
-      '/img/main/gallery/day2_2.jpg',
-      '/img/main/gallery/day2_3.jpg',
+      '/img/main/brand02_bg.jpg',
+      '/img/main/ms_pdt_bg.jpg',
+      '/img/main/review_img3.jpg',
     ],
     [
-      '/img/main/gallery/day3_1.jpg',
-      '/img/main/gallery/day3_2.jpg',
-      '/img/main/gallery/day3_3.jpg',
+      '/img/main/review_img2.jpg',
+      '/img/main/review_img3.jpg',
+      '/img/main/review_img1.jpg',
     ],
   ]);
 
@@ -123,7 +123,7 @@ export default function Home() {
     {
       title: '완전후불식 장례토탈서비스',
       subtitle: '합리적인 가격과 고품질 상품으로 고객 감동의 서비스를 추구합니다.',
-      image: '/img/main/visual01.jpg'
+      image: '/img/170/70_list01_1_img.png'
     },
     {
       title: '전국 모든지역 이용 가능',
@@ -191,28 +191,29 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full">
           {/* 1 */}
           <div className="flex flex-col items-center text-center">
-            <img src="/img/main/company_ico1.png" alt="합리적인 가격" className="w-40 h-32 object-cover mb-4 rounded" />
+            {/* <img src="/img/170/70_list01_1_img.png" alt="합리적인 가격" className="w-40 h-32 object-cover mb-4 rounded" /> */}
+            <img src="/img/170/70_list01_1_img.png" alt="합리적인 가격" className="w-46 h-40 object-cover mb-4 rounded" />
             <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#17427b] text-white font-bold text-lg mb-2">1</div>
             <div className="font-bold text-[#17427b] text-lg mb-1">합리적인 가격으로 모십니다</div>
             <div className="text-gray-600 text-sm">합리적인 가격과 고품질 생모로 고객감동의 서비스를 추구합니다.</div>
           </div>
           {/* 2 */}
           <div className="flex flex-col items-center text-center">
-            <img src="/img/main/company_ico2.png" alt="전국 모든지역 이용" className="w-40 h-32 object-cover mb-4 rounded" />
+            <img src="/img/170/70_list01_2_img.png" alt="전국 모든지역 이용" className="w-46 h-40 object-cover mb-4 rounded" />
             <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#17427b] text-white font-bold text-lg mb-2">2</div>
             <div className="font-bold text-[#17427b] text-lg mb-1">전국 모든지역 이용이 가능합니다.</div>
             <div className="text-gray-600 text-sm">국가공인과 경제지도사들을 전국네트워크망을 구축하여 24시간 운영하고 있습니다.</div>
           </div>
           {/* 3 */}
           <div className="flex flex-col items-center text-center">
-            <img src="/img/main/ms_pdt_ico.png" alt="서비스 완료 후 정산" className="w-40 h-32 object-cover mb-4 rounded" />
+            <img src="/img/170/70_list01_3_img.png" alt="서비스 완료 후 정산" className="w-46 h-40 object-cover mb-4 rounded" />
             <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#17427b] text-white font-bold text-lg mb-2">3</div>
             <div className="font-bold text-[#17427b] text-lg mb-1">서비스 완료 후 정산합니다</div>
             <div className="text-gray-600 text-sm">회원 가입비나 월 납입금에 대한 부담이 전혀 없는 완전후불제를 실시하고 있습니다.</div>
           </div>
           {/* 4 */}
           <div className="flex flex-col items-center text-center">
-            <img src="/img/main/brand02_txt.png" alt="신뢰성 자랑" className="w-40 h-32 object-cover mb-4 rounded" />
+            <img src="/img/170/70_list03_2_img.png" alt="신뢰성 자랑" className="w-46 h-40 object-cover mb-4 rounded" />
             <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#17427b] text-white font-bold text-lg mb-2">4</div>
             <div className="font-bold text-[#17427b] text-lg mb-1">신뢰성을 자랑합니다</div>
             <div className="text-gray-600 text-sm">기업, 단체들과 협약하고 있으며, 믿고 맡길 수 있는 신뢰의 서비스를 제공합니다.</div>
@@ -233,46 +234,46 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full px-4">
             {/* 상품 카드 1 */}
             <div className="flex flex-col items-center">
-              <div className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg mb-4">
+              <a href="/product?page=basic" className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg mb-4 transition-transform duration-200 hover:scale-105 focus:outline-none">
                 <div className="text-[#17427b] font-bold text-lg mb-1">보급형</div>
                 <div className="text-3xl font-extrabold text-[#17427b]">230 <span className="text-xl font-bold">만원</span></div>
-                <div className="text-gray-500 text-xs mt-2">해당 메뉴에 대한 간략한 설명이 들어갑니다.</div>
-                <a href="#" className="mt-4 text-xs text-[#17427b] font-bold flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block">→</span></a>
-              </div>
+                <div className="text-gray-500 text-xs mt-2 text-center px-5">해당 메뉴에 대한 간략한 설명이 들어갑니다.</div>
+                <div className="mt-4 text-xs text-[#17427b] font-bold flex items-center gap-1">MORE VIEW <span className="inline-block">→</span></div>
+              </a>
             </div>
             {/* 상품 카드 2 */}
             <div className="flex flex-col items-center">
-              <div className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg mb-4">
+              <a href="/product?page=standard" className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg mb-4 transition-transform duration-200 hover:scale-105 focus:outline-none">
                 <div className="text-[#17427b] font-bold text-lg mb-1">일반형</div>
                 <div className="text-3xl font-extrabold text-[#17427b]">330 <span className="text-xl font-bold">만원</span></div>
-                <div className="text-gray-500 text-xs mt-2">해당 메뉴에 대한 간략한 설명이 들어갑니다.</div>
-                <a href="#" className="mt-4 text-xs text-[#17427b] font-bold flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block">→</span></a>
-              </div>
+                <div className="text-gray-500 text-xs mt-2 text-center px-5">해당 메뉴에 대한 간략한 설명이 들어갑니다.</div>
+                <div className="mt-4 text-xs text-[#17427b] font-bold flex items-center gap-1">MORE VIEW <span className="inline-block">→</span></div>
+              </a>
             </div>
             {/* 상품 카드 3 */}
             <div className="flex flex-col items-center">
-              <div className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg mb-4">
+              <a href="/product?page=premium" className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg mb-4 transition-transform duration-200 hover:scale-105 focus:outline-none">
                 <div className="text-[#17427b] font-bold text-lg mb-1">고급형</div>
                 <div className="text-3xl font-extrabold text-[#17427b]">430 <span className="text-xl font-bold">만원</span></div>
-                <div className="text-gray-500 text-xs mt-2">해당 메뉴에 대한 간략한 설명이 들어갑니다.</div>
-                <a href="#" className="mt-4 text-xs text-[#17427b] font-bold flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block">→</span></a>
-              </div>
+                <div className="text-gray-500 text-xs mt-2 text-center px-5">해당 메뉴에 대한 간략한 설명이 들어갑니다.</div>
+                <div className="mt-4 text-xs text-[#17427b] font-bold flex items-center gap-1">MORE VIEW <span className="inline-block">→</span></div>
+              </a>
             </div>
             {/* 상품 카드 4 */}
             <div className="flex flex-col items-center">
-              <div className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg mb-4">
+              <a href="/product?page=company" className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg mb-4 transition-transform duration-200 hover:scale-105 focus:outline-none">
                 <div className="text-[#17427b] font-bold text-lg mb-1">회사장</div>
                 <div className="text-2xl font-extrabold text-[#17427b]">상담 후 결정</div>
-                <div className="text-gray-500 text-xs mt-2">해당 메뉴에 대한 간략한 설명이 들어갑니다.</div>
-                <a href="#" className="mt-4 text-xs text-[#17427b] font-bold flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block">→</span></a>
-              </div>
+                <div className="text-gray-500 text-xs mt-2 text-center px-5">해당 메뉴에 대한 간략한 설명이 들어갑니다.</div>
+                <div className="mt-4 text-xs text-[#17427b] font-bold flex items-center gap-1">MORE VIEW <span className="inline-block">→</span></div>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* 장례진행절차 - 순차 애니메이션 */}
-      <section className="w-full bg-white py-8 sm:py-12">
+      <a href="/funeralInfo?page=procedure" className="block w-full bg-white py-8 sm:py-12 cursor-pointer hover:bg-gray-50 transition-colors duration-200">
         <h2 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 animate-fadeIn">
           장례진행절차
         </h2>
@@ -294,7 +295,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </a>
 
       {/* 장례진행절차 갤러리 & 전국의 장례시설 */}
       <section className="w-full max-w-7xl mx-auto px-4 mb-16">
@@ -329,16 +330,32 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center w-full">
               {/* 지도 이미지 */}
               <div className="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
-                <img src="/img/main/korea_map_sample.png" alt="전국지도" className="w-48 h-56 object-contain" />
+                <img src="/img/main/brand01_bg.jpg" alt="전국지도" className="w-48 h-56 object-contain" />
               </div>
               {/* 설명+범례 */}
               <div className="flex-1 flex flex-col justify-center">
                 <p className="text-gray-700 text-sm mb-4">장례시설 검색으로 전국의 장례시설을 초인스상조가 안내해 드립니다.</p>
                 <ul className="space-y-2">
-                  <li className="flex items-center gap-2"><span className="inline-block w-4 h-4 rounded-full bg-[#17427b]"></span> 장례식장</li>
-                  <li className="flex items-center gap-2"><span className="inline-block w-4 h-4 rounded-full bg-[#2e8bc0]"></span> 공원묘지</li>
-                  <li className="flex items-center gap-2"><span className="inline-block w-4 h-4 rounded-full bg-[#fbb034]"></span> 화장장</li>
-                  <li className="flex items-center gap-2"><span className="inline-block w-4 h-4 rounded-full bg-[#e94e77]"></span> 납골묘</li>
+                  <li>
+                    <a href="/facility?page=hall" className="flex items-center gap-2 hover:underline">
+                      <span className="inline-block w-4 h-4 rounded-full bg-[#17427b]"></span> 장례식장
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/facility?page=park" className="flex items-center gap-2 hover:underline">
+                      <span className="inline-block w-4 h-4 rounded-full bg-[#2e8bc0]"></span> 공원묘지
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/facility?page=crematory" className="flex items-center gap-2 hover:underline">
+                      <span className="inline-block w-4 h-4 rounded-full bg-[#fbb034]"></span> 화장장
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/facility?page=columbarium" className="flex items-center gap-2 hover:underline">
+                      <span className="inline-block w-4 h-4 rounded-full bg-[#e94e77]"></span> 납골묘
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -476,7 +493,7 @@ export default function Home() {
 
 
       {/* [NEW] 장의정보 안내 섹션 */}
-      <section className="relative w-full py-16 flex flex-col items-center justify-center" style={{minHeight:'280px'}}>
+      <section className="relative w-full py-16 flex flex-col items-center justify-center cursor-pointer hover:bg-[#1a3570]/90 transition-colors duration-200" style={{minHeight:'280px'}}>
         {/* 배경 이미지+블루 오버레이 */}
         <div className="absolute inset-0 w-full h-full">
           <img src="/img/main/use_bg.jpg" alt="배경" className="w-full h-full object-cover blur-sm scale-105" />
@@ -488,26 +505,26 @@ export default function Home() {
           </h2>
           <div className="w-full flex flex-col md:flex-row items-center justify-center gap-8">
             {/* 장례절차 */}
-            <div className="flex flex-col items-center text-white flex-1 min-w-[120px]">
+            <a href="/funeralInfo?page=procedure" className="flex flex-col items-center text-white flex-1 min-w-[120px] group focus:outline-none hover:scale-105 transition-transform duration-200">
               <div className="mb-4">
-                <img src="/img/svg/procedure.svg" alt="장례절차" className="w-14 h-14" />
+                <img src="/img/icon01.png" alt="장례절차" className="w-26 h-26" />
               </div>
-              <div className="font-bold text-lg">장례절차</div>
-            </div>
+              <div className="font-bold text-lg group-hover:underline">장례절차</div>
+            </a>
             {/* 종교별 장례절차 */}
-            <div className="flex flex-col items-center text-white flex-1 min-w-[120px]">
+            <a href="/funeralInfo?page=religion" className="flex flex-col items-center text-white flex-1 min-w-[120px] group focus:outline-none hover:scale-105 transition-transform duration-200">
               <div className="mb-4">
-                <img src="/img/svg/religion.svg" alt="종교별 장례절차" className="w-14 h-14" />
+                <img src="/img/icon02.png" alt="종교별 장례절차" className="w-26 h-26" />
               </div>
-              <div className="font-bold text-lg">종교별 장례절차</div>
-            </div>
+              <div className="font-bold text-lg group-hover:underline">종교별 장례절차</div>
+            </a>
             {/* 장례행정 */}
-            <div className="flex flex-col items-center text-white flex-1 min-w-[120px]">
+            <a href="/funeralInfo?page=admin" className="flex flex-col items-center text-white flex-1 min-w-[120px] group focus:outline-none hover:scale-105 transition-transform duration-200">
               <div className="mb-4">
-                <img src="/img/svg/admin.svg" alt="장례행정" className="w-14 h-14" />
+                <img src="/img/icon03.png" alt="장례행정" className="w-26 h-26" />
               </div>
-              <div className="font-bold text-lg">장례행정</div>
-            </div>
+              <div className="font-bold text-lg group-hover:underline">장례행정</div>
+            </a>
           </div>
         </div>
       </section>
@@ -521,7 +538,7 @@ export default function Home() {
             <div className="p-5 flex flex-col flex-1">
               <div className="font-bold text-lg mb-2">FAQ</div>
               <div className="text-gray-600 text-sm mb-6">초인스상조에 관해 자주 묻는 질문과 답변을 보실 수 있습니다.</div>
-              <a href="/customer/faq" className="mt-auto text-xs font-bold text-[#17427b] flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block w-4 h-4"><svg fill="none" stroke="#17427b" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+              <a href="/customer?page=faq" className="mt-auto text-xs font-bold text-[#17427b] flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block w-4 h-4"><svg fill="none" stroke="#17427b" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
             </div>
           </div>
           {/* 공지사항 */}
@@ -530,7 +547,7 @@ export default function Home() {
             <div className="p-5 flex flex-col flex-1">
               <div className="font-bold text-lg mb-2">공지사항</div>
               <div className="text-gray-600 text-sm mb-6">초인스상조의 최근 소식과 정보들을 보실 수 있습니다.</div>
-              <a href="/customer/notice" className="mt-auto text-xs font-bold text-[#17427b] flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block w-4 h-4"><svg fill="none" stroke="#17427b" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+              <a href="/customer?page=notice" className="mt-auto text-xs font-bold text-[#17427b] flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block w-4 h-4"><svg fill="none" stroke="#17427b" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
             </div>
           </div>
           {/* 문의사항 */}
@@ -539,7 +556,7 @@ export default function Home() {
             <div className="p-5 flex flex-col flex-1">
               <div className="font-bold text-lg mb-2">문의사항</div>
               <div className="text-gray-600 text-sm mb-6">초인스상조에게 궁금한 사항을 문의해 주세요.</div>
-              <a href="/customer/inquiry" className="mt-auto text-xs font-bold text-[#17427b] flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block w-4 h-4"><svg fill="none" stroke="#17427b" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+              <a href="/customer?page=inquiry" className="mt-auto text-xs font-bold text-[#17427b] flex items-center gap-1 hover:underline">MORE VIEW <span className="inline-block w-4 h-4"><svg fill="none" stroke="#17427b" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
             </div>
           </div>
           {/* 24시간 상담 */}
